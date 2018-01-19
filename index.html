@@ -1,0 +1,2474 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>KAD</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="CSS/bootstrap.css">
+
+</head>
+
+<body background="pictures/Pared.jpg">
+
+    <form id="form-elevator" action="guardar.php" method="post" autocomplete="off">
+
+        <div id="lienzo">
+
+            <header id="main-header">
+
+                <a id="logo-header" href="#">
+
+                    <span class="site-name">KAD Reservations</span>
+                    <span class="site-desc">Reservaciones para Ingeniería en Software</span>
+                </a>
+                <!-- / #logo-header -->
+
+                <nav>
+                    <ul>
+                        <li><input type="text" name="Codigo" class="form-control" placeholder="Código" autofocus="true"></li>
+                        <li><input type="submit" id="submit" name="submit" value="Ingresar" class="btn btn-success btn-lg margen"></li>
+                    </ul>
+                </nav>
+                <!-- / nav -->
+
+            </header>
+            <!-- / #main-header -->
+        </div>
+
+    </form>
+
+    <script src="js/svg.min.js"></script>
+    
+    <script>
+        // Lienzo SVG donde serán creados todos los objetos
+        var lienzo = SVG('lienzo').size('100%', '271%');
+
+        // Representa las mesas y las sillas del salón con sus atributos
+        var mesa1 = [{
+            color: '#550544',
+            posicion: {
+                x: 70,
+                y: 140
+            },
+            sillas: [{
+                    numero: 1,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 50,
+                        y: 140
+                    }
+                }, {
+                    numero: 2,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 90,
+                        y: 115
+                    }
+                }, {
+                    numero: 3,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 140,
+                        y: 115
+                    }
+                }, {
+                    numero: 4,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 170,
+                        y: 150
+                    }
+                }, {
+                    numero: 5,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 180,
+                        y: 190
+                    }
+                }, {
+                    numero: 6,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 165,
+                        y: 220
+                    }
+                }, {
+                    numero: 7,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 130,
+                        y: 245
+                    }
+                }, {
+                    numero: 8,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 90,
+                        y: 245
+                    }
+                }, {
+                    numero: 9,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 60,
+                        y: 230
+                    }
+                }, {
+                    numero: 10,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 40,
+                        y: 190
+                    }
+                }
+
+
+            ]
+        }]
+        ////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        var mesa2 = [{
+            color: '#550544',
+            posicion: {
+                x: 290,
+                y: 140
+            },
+            sillas: [{
+                numero: 1,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 270,
+                    y: 140
+                }
+            }, {
+                numero: 2,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 310,
+                    y: 115
+                }
+            }, {
+                numero: 3,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 360,
+                    y: 115
+                }
+            }, {
+                numero: 4,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 390,
+                    y: 150
+                }
+            }, {
+                numero: 5,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 400,
+                    y: 190
+                }
+            }, {
+                numero: 6,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 385,
+                    y: 220
+                }
+            }, {
+                numero: 7,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 350,
+                    y: 245
+                }
+            }, {
+                numero: 8,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 310,
+                    y: 245
+                }
+            }, {
+                numero: 9,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 280,
+                    y: 230
+                }
+            }, {
+                numero: 10,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 260,
+                    y: 190
+                }
+            }]
+        }]
+        ////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        var mesa3 = [{
+            color: '#550544',
+            posicion: {
+                x: 790,
+                y: 140
+            },
+            sillas: [{
+                numero: 1,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 770,
+                    y: 140
+                }
+            }, {
+                numero: 2,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 810,
+                    y: 115
+                }
+            }, {
+                numero: 3,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 860,
+                    y: 115
+                }
+            }, {
+                numero: 4,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 890,
+                    y: 150
+                }
+            }, {
+                numero: 5,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 900,
+                    y: 190
+                }
+            }, {
+                numero: 6,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 885,
+                    y: 220
+                }
+            }, {
+                numero: 7,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 850,
+                    y: 245
+                }
+            }, {
+                numero: 8,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 810,
+                    y: 245
+                }
+            }, {
+                numero: 9,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 780,
+                    y: 230
+                }
+            }, {
+                numero: 10,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 760,
+                    y: 190
+                }
+            }]
+        }]
+        ////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        var mesa4 = [{
+            color: '#550544',
+            posicion: {
+                x: 990,
+                y: 140
+            },
+            sillas: [{
+                numero: 1,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 970,
+                    y: 140
+                }
+            }, {
+                numero: 2,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1010,
+                    y: 115
+                }
+            }, {
+                numero: 3,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1060,
+                    y: 115
+                }
+            }, {
+                numero: 4,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1090,
+                    y: 150
+                }
+            }, {
+                numero: 5,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1100,
+                    y: 190
+                }
+            }, {
+                numero: 6,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1085,
+                    y: 220
+                }
+            }, {
+                numero: 7,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1050,
+                    y: 245
+                }
+            }, {
+                numero: 8,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1010,
+                    y: 245
+                }
+            }, {
+                numero: 9,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 980,
+                    y: 230
+                }
+            }, {
+                numero: 10,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 960,
+                    y: 190
+                }
+            }]
+        }]
+        ////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        var mesa5 = [{
+            color: '#550544',
+            posicion: {
+                x: 1190,
+                y: 140
+            },
+            sillas: [{
+                numero: 1,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1170,
+                    y: 140
+                }
+            }, {
+                numero: 2,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1210,
+                    y: 115
+                }
+            }, {
+                numero: 3,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1260,
+                    y: 115
+                }
+            }, {
+                numero: 4,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1290,
+                    y: 150
+                }
+            }, {
+                numero: 5,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1300,
+                    y: 190
+                }
+            }, {
+                numero: 6,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1285,
+                    y: 220
+                }
+            }, {
+                numero: 7,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1250,
+                    y: 245
+                }
+            }, {
+                numero: 8,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1210,
+                    y: 245
+                }
+            }, {
+                numero: 9,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1180,
+                    y: 230
+                }
+            }, {
+                numero: 10,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1160,
+                    y: 190
+                }
+            }]
+        }]
+        //#########################################
+        //#########################################
+        //#########################################
+        var mesa6 = [{
+            color: '#550544',
+            posicion: {
+                x: 70,
+                y: 340
+            },
+            sillas: [{
+                    numero: 1,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 50,
+                        y: 340
+                    }
+                }, {
+                    numero: 2,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 90,
+                        y: 315
+                    }
+                }, {
+                    numero: 3,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 140,
+                        y: 315
+                    }
+                }, {
+                    numero: 4,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 170,
+                        y: 350
+                    }
+                }, {
+                    numero: 5,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 180,
+                        y: 390
+                    }
+                }, {
+                    numero: 6,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 165,
+                        y: 420
+                    }
+                }, {
+                    numero: 7,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 130,
+                        y: 445
+                    }
+                }, {
+                    numero: 8,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 90,
+                        y: 445
+                    }
+                }, {
+                    numero: 9,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 60,
+                        y: 430
+                    }
+                }, {
+                    numero: 10,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 40,
+                        y: 390
+                    }
+                }
+
+
+            ]
+        }]
+        ////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        var mesa7 = [{
+            color: '#550544',
+            posicion: {
+                x: 290,
+                y: 340
+            },
+            sillas: [{
+                numero: 1,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 270,
+                    y: 340
+                }
+            }, {
+                numero: 2,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 310,
+                    y: 315
+                }
+            }, {
+                numero: 3,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 360,
+                    y: 315
+                }
+            }, {
+                numero: 4,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 390,
+                    y: 350
+                }
+            }, {
+                numero: 5,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 400,
+                    y: 390
+                }
+            }, {
+                numero: 6,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 385,
+                    y: 420
+                }
+            }, {
+                numero: 7,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 350,
+                    y: 445
+                }
+            }, {
+                numero: 8,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 310,
+                    y: 445
+                }
+            }, {
+                numero: 9,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 280,
+                    y: 430
+                }
+            }, {
+                numero: 10,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 260,
+                    y: 390
+                }
+            }]
+        }]
+        ////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        var mesa8 = [{
+            color: '#550544',
+            posicion: {
+                x: 790,
+                y: 340
+            },
+            sillas: [{
+                numero: 1,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 770,
+                    y: 340
+                }
+            }, {
+                numero: 2,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 810,
+                    y: 315
+                }
+            }, {
+                numero: 3,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 860,
+                    y: 315
+                }
+            }, {
+                numero: 4,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 890,
+                    y: 350
+                }
+            }, {
+                numero: 5,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 900,
+                    y: 390
+                }
+            }, {
+                numero: 6,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 885,
+                    y: 420
+                }
+            }, {
+                numero: 7,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 850,
+                    y: 445
+                }
+            }, {
+                numero: 8,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 810,
+                    y: 445
+                }
+            }, {
+                numero: 9,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 780,
+                    y: 430
+                }
+            }, {
+                numero: 10,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 760,
+                    y: 390
+                }
+            }]
+        }]
+        ////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        var mesa9 = [{
+            color: '#550544',
+            posicion: {
+                x: 990,
+                y: 340
+            },
+            sillas: [{
+                numero: 1,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 970,
+                    y: 340
+                }
+            }, {
+                numero: 2,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1010,
+                    y: 315
+                }
+            }, {
+                numero: 3,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1060,
+                    y: 315
+                }
+            }, {
+                numero: 4,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1090,
+                    y: 350
+                }
+            }, {
+                numero: 5,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1100,
+                    y: 390
+                }
+            }, {
+                numero: 6,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1085,
+                    y: 420
+                }
+            }, {
+                numero: 7,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1050,
+                    y: 445
+                }
+            }, {
+                numero: 8,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1010,
+                    y: 445
+                }
+            }, {
+                numero: 9,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 980,
+                    y: 430
+                }
+            }, {
+                numero: 10,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 960,
+                    y: 390
+                }
+            }]
+        }]
+        ////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        var mesa10 = [{
+            color: '#550544',
+            posicion: {
+                x: 1190,
+                y: 340
+            },
+            sillas: [{
+                numero: 1,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1170,
+                    y: 340
+                }
+            }, {
+                numero: 2,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1210,
+                    y: 315
+                }
+            }, {
+                numero: 3,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1260,
+                    y: 315
+                }
+            }, {
+                numero: 4,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1290,
+                    y: 350
+                }
+            }, {
+                numero: 5,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1300,
+                    y: 390
+                }
+            }, {
+                numero: 6,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1285,
+                    y: 420
+                }
+            }, {
+                numero: 7,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1250,
+                    y: 445
+                }
+            }, {
+                numero: 8,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1210,
+                    y: 445
+                }
+            }, {
+                numero: 9,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1180,
+                    y: 430
+                }
+            }, {
+                numero: 10,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1160,
+                    y: 390
+                }
+            }]
+        }]
+
+        ///#################################
+        ///#################################
+        ///#################################
+        ///#################################
+        ///#################################
+        ///#################################
+        var mesa11 = [{
+            color: '#550544',
+            posicion: {
+                x: 70,
+                y: 540
+            },
+            sillas: [{
+                    numero: 1,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 50,
+                        y: 540
+                    }
+                }, {
+                    numero: 2,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 90,
+                        y: 515
+                    }
+                }, {
+                    numero: 3,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 140,
+                        y: 515
+                    }
+                }, {
+                    numero: 4,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 170,
+                        y: 550
+                    }
+                }, {
+                    numero: 5,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 180,
+                        y: 590
+                    }
+                }, {
+                    numero: 6,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 165,
+                        y: 620
+                    }
+                }, {
+                    numero: 7,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 130,
+                        y: 645
+                    }
+                }, {
+                    numero: 8,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 90,
+                        y: 645
+                    }
+                }, {
+                    numero: 9,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 60,
+                        y: 630
+                    }
+                }, {
+                    numero: 10,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 40,
+                        y: 590
+                    }
+                }
+
+
+            ]
+        }]
+        ////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        var mesa12 = [{
+            color: '#550544',
+            posicion: {
+                x: 290,
+                y: 540
+            },
+            sillas: [{
+                numero: 1,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 270,
+                    y: 540
+                }
+            }, {
+                numero: 2,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 310,
+                    y: 515
+                }
+            }, {
+                numero: 3,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 360,
+                    y: 515
+                }
+            }, {
+                numero: 4,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 390,
+                    y: 550
+                }
+            }, {
+                numero: 5,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 400,
+                    y: 590
+                }
+            }, {
+                numero: 6,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 385,
+                    y: 620
+                }
+            }, {
+                numero: 7,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 350,
+                    y: 645
+                }
+            }, {
+                numero: 8,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 310,
+                    y: 645
+                }
+            }, {
+                numero: 9,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 280,
+                    y: 630
+                }
+            }, {
+                numero: 10,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 260,
+                    y: 590
+                }
+            }]
+        }]
+        ////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        var mesa13 = [{
+            color: '#550544',
+            posicion: {
+                x: 790,
+                y: 540
+            },
+            sillas: [{
+                numero: 1,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 770,
+                    y: 540
+                }
+            }, {
+                numero: 2,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 810,
+                    y: 515
+                }
+            }, {
+                numero: 3,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 860,
+                    y: 515
+                }
+            }, {
+                numero: 4,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 890,
+                    y: 550
+                }
+            }, {
+                numero: 5,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 900,
+                    y: 590
+                }
+            }, {
+                numero: 6,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 885,
+                    y: 620
+                }
+            }, {
+                numero: 7,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 850,
+                    y: 645
+                }
+            }, {
+                numero: 8,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 810,
+                    y: 645
+                }
+            }, {
+                numero: 9,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 780,
+                    y: 630
+                }
+            }, {
+                numero: 10,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 760,
+                    y: 590
+                }
+            }]
+        }]
+        ////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        var mesa14 = [{
+            color: '#550544',
+            posicion: {
+                x: 990,
+                y: 540
+            },
+            sillas: [{
+                numero: 1,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 970,
+                    y: 540
+                }
+            }, {
+                numero: 2,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1010,
+                    y: 515
+                }
+            }, {
+                numero: 3,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1060,
+                    y: 515
+                }
+            }, {
+                numero: 4,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1090,
+                    y: 550
+                }
+            }, {
+                numero: 5,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1100,
+                    y: 590
+                }
+            }, {
+                numero: 6,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1085,
+                    y: 620
+                }
+            }, {
+                numero: 7,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1050,
+                    y: 645
+                }
+            }, {
+                numero: 8,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1010,
+                    y: 645
+                }
+            }, {
+                numero: 9,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 980,
+                    y: 630
+                }
+            }, {
+                numero: 10,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 960,
+                    y: 590
+                }
+            }]
+        }]
+        ////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        var mesa15 = [{
+            color: '#550544',
+            posicion: {
+                x: 1190,
+                y: 540
+            },
+            sillas: [{
+                numero: 1,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1170,
+                    y: 540
+                }
+            }, {
+                numero: 2,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1210,
+                    y: 515
+                }
+            }, {
+                numero: 3,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1260,
+                    y: 515
+                }
+            }, {
+                numero: 4,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1290,
+                    y: 550
+                }
+            }, {
+                numero: 5,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1300,
+                    y: 590
+                }
+            }, {
+                numero: 6,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1285,
+                    y: 220
+                }
+            }, {
+                numero: 7,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1250,
+                    y: 645
+                }
+            }, {
+                numero: 8,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1210,
+                    y: 645
+                }
+            }, {
+                numero: 9,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1180,
+                    y: 630
+                }
+            }, {
+                numero: 10,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1160,
+                    y: 590
+                }
+            }]
+        }]
+        //#########################################
+        //#########################################
+        //#########################################
+        var mesa16 = [{
+            color: '#550544',
+            posicion: {
+                x: 70,
+                y: 740
+            },
+            sillas: [{
+                    numero: 1,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 50,
+                        y: 740
+                    }
+                }, {
+                    numero: 2,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 90,
+                        y: 715
+                    }
+                }, {
+                    numero: 3,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 140,
+                        y: 715
+                    }
+                }, {
+                    numero: 4,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 170,
+                        y: 750
+                    }
+                }, {
+                    numero: 5,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 180,
+                        y: 790
+                    }
+                }, {
+                    numero: 6,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 165,
+                        y: 820
+                    }
+                }, {
+                    numero: 7,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 130,
+                        y: 845
+                    }
+                }, {
+                    numero: 8,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 90,
+                        y: 845
+                    }
+                }, {
+                    numero: 9,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 60,
+                        y: 830
+                    }
+                }, {
+                    numero: 10,
+                    color: '#30f6ff',
+                    ocupada: false,
+                    posicion: {
+                        x: 40,
+                        y: 790
+                    }
+                }
+
+
+            ]
+        }]
+        ////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        var mesa17 = [{
+            color: '#550544',
+            posicion: {
+                x: 290,
+                y: 740
+            },
+            sillas: [{
+                numero: 1,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 270,
+                    y: 740
+                }
+            }, {
+                numero: 2,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 310,
+                    y: 715
+                }
+            }, {
+                numero: 3,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 360,
+                    y: 715
+                }
+            }, {
+                numero: 4,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 390,
+                    y: 750
+                }
+            }, {
+                numero: 5,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 400,
+                    y: 790
+                }
+            }, {
+                numero: 6,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 385,
+                    y: 820
+                }
+            }, {
+                numero: 7,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 350,
+                    y: 845
+                }
+            }, {
+                numero: 8,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 310,
+                    y: 845
+                }
+            }, {
+                numero: 9,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 280,
+                    y: 830
+                }
+            }, {
+                numero: 10,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 260,
+                    y: 790
+                }
+            }]
+        }]
+        ////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        var mesa18 = [{
+            color: '#550544',
+            posicion: {
+                x: 790,
+                y: 740
+            },
+            sillas: [{
+                numero: 1,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 770,
+                    y: 740
+                }
+            }, {
+                numero: 2,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 810,
+                    y: 715
+                }
+            }, {
+                numero: 3,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 860,
+                    y: 715
+                }
+            }, {
+                numero: 4,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 890,
+                    y: 750
+                }
+            }, {
+                numero: 5,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 900,
+                    y: 790
+                }
+            }, {
+                numero: 6,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 885,
+                    y: 820
+                }
+            }, {
+                numero: 7,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 850,
+                    y: 845
+                }
+            }, {
+                numero: 8,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 810,
+                    y: 845
+                }
+            }, {
+                numero: 9,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 780,
+                    y: 830
+                }
+            }, {
+                numero: 10,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 760,
+                    y: 790
+                }
+            }]
+        }]
+        ////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        var mesa19 = [{
+            color: '#550544',
+            posicion: {
+                x: 990,
+                y: 740
+            },
+            sillas: [{
+                numero: 1,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 970,
+                    y: 740
+                }
+            }, {
+                numero: 2,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1010,
+                    y: 715
+                }
+            }, {
+                numero: 3,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1060,
+                    y: 715
+                }
+            }, {
+                numero: 4,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1090,
+                    y: 750
+                }
+            }, {
+                numero: 5,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1100,
+                    y: 790
+                }
+            }, {
+                numero: 6,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1085,
+                    y: 820
+                }
+            }, {
+                numero: 7,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1050,
+                    y: 845
+                }
+            }, {
+                numero: 8,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1010,
+                    y: 845
+                }
+            }, {
+                numero: 9,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 980,
+                    y: 830
+                }
+            }, {
+                numero: 10,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 960,
+                    y: 790
+                }
+            }]
+        }]
+        ////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////
+        var mesa20 = [{
+            color: '#550544',
+            posicion: {
+                x: 1190,
+                y: 740
+            },
+            sillas: [{
+                numero: 1,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1170,
+                    y: 740
+                }
+            }, {
+                numero: 2,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1210,
+                    y: 715
+                }
+            }, {
+                numero: 3,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1260,
+                    y: 715
+                }
+            }, {
+                numero: 4,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1290,
+                    y: 750
+                }
+            }, {
+                numero: 5,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1300,
+                    y: 790
+                }
+            }, {
+                numero: 6,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1285,
+                    y: 820
+                }
+            }, {
+                numero: 7,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1250,
+                    y: 845
+                }
+            }, {
+                numero: 8,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1210,
+                    y: 845
+                }
+            }, {
+                numero: 9,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1180,
+                    y: 830
+                }
+            }, {
+                numero: 10,
+                color: '#30f6ff',
+                ocupada: false,
+                posicion: {
+                    x: 1160,
+                    y: 790
+                }
+            }]
+        }]
+
+
+        var PistaBaile = [{
+            color: '#e0e0e0',
+            posicion: {
+                x: 420,
+                y: 500
+            }
+        }]
+        for (var mesa of PistaBaile) {
+            var mesaFigura = lienzo.circle(340).attr({
+                fill: mesa.color
+            }).move(mesa.posicion.x, mesa.posicion.y);
+
+        }
+
+
+
+
+
+
+
+
+
+        // Se agregan dinámicamente las mesas y sus sillas
+        for (var mesa of mesa1) {
+            var mesaFigura = lienzo.circle(100).attr({
+                fill: mesa.color
+            }).move(mesa.posicion.x, mesa.posicion.y);
+
+            for (var silla of mesa.sillas) {
+                var color = silla.ocupada ? mesa.color : silla.color;
+
+                var sillaFigura = lienzo.circle(20).attr({
+                    fill: color
+                }).move(silla.posicion.x, silla.posicion.y);
+
+                sillaFigura.numero = silla.numero;
+
+                // Adjunta el evento click con su callback para responder por cada silla.
+                // Aquí se pueden enviar datos al servidor si se requiere.
+                if (sillaFigura.color = '#e0e0e0') {
+                    sillaFigura.click(function() {
+
+                        this.attr({
+                            fill: '#00c853'
+                        })
+                    });
+
+                } else {
+                    //sillaFigura.click(function() {
+
+                    //  this.attr({
+                    //      fill: '#00c853'
+                    //  })});
+                    console.log('Hoaa');
+                }
+
+                // sillaFigura.click(function() {
+
+                //  this.attr({
+                //  fill: '#00c853'
+                //  })
+                // console.log('Seleccionaste la silla: ' + this.numero);
+                // if(sillaFigura.color = '#00c853'){
+                //   console.log('Hoaa');
+                //   sillaFigura.attr({fill: '#e0e0e0'})
+                //    sillaFigura.click(function() {
+
+                // this.attr({
+                //      fill: '#e0e0e0'
+                //  })});
+            }
+        }
+
+        // ); 
+
+
+
+
+
+
+
+
+
+        for (var mesa of mesa2) {
+            var mesaFigura = lienzo.circle(100).attr({
+                fill: mesa.color
+            }).move(mesa.posicion.x, mesa.posicion.y);
+
+            for (var silla of mesa.sillas) {
+                var color = silla.ocupada ? mesa.color : silla.color;
+
+                var sillaFigura = lienzo.circle(20).attr({
+                    fill: color
+                }).move(silla.posicion.x, silla.posicion.y);
+
+                sillaFigura.numero = silla.numero;
+
+                // Adjunta el evento click con su callback para responder por cada silla.
+                // Aquí se pueden enviar datos al servidor si se requiere.
+                sillaFigura.click(function() {
+                    this.attr({
+                        fill: '#00c853'
+                    })
+                    console.log('Seleccionaste la silla: ' + this.numero);
+                });
+            }
+
+        }
+
+        for (var mesa of mesa3) {
+            var mesaFigura = lienzo.circle(100).attr({
+                fill: mesa.color
+            }).move(mesa.posicion.x, mesa.posicion.y);
+
+            for (var silla of mesa.sillas) {
+                var color = silla.ocupada ? mesa.color : silla.color;
+
+                var sillaFigura = lienzo.circle(20).attr({
+                    fill: color
+                }).move(silla.posicion.x, silla.posicion.y);
+
+                sillaFigura.numero = silla.numero;
+
+                // Adjunta el evento click con su callback para responder por cada silla.
+                // Aquí se pueden enviar datos al servidor si se requiere.
+                sillaFigura.click(function() {
+                    this.attr({
+                        fill: '#00c853'
+                    })
+                    console.log('Seleccionaste la silla: ' + this.numero);
+                });
+            }
+        }
+
+        for (var mesa of mesa4) {
+            var mesaFigura = lienzo.circle(100).attr({
+                fill: mesa.color
+            }).move(mesa.posicion.x, mesa.posicion.y);
+
+            for (var silla of mesa.sillas) {
+                var color = silla.ocupada ? mesa.color : silla.color;
+
+                var sillaFigura = lienzo.circle(20).attr({
+                    fill: color
+                }).move(silla.posicion.x, silla.posicion.y);
+
+                sillaFigura.numero = silla.numero;
+
+                // Adjunta el evento click con su callback para responder por cada silla.
+                // Aquí se pueden enviar datos al servidor si se requiere.
+                sillaFigura.click(function() {
+                    this.attr({
+                        fill: '#00c853'
+                    })
+                    console.log('Seleccionaste la silla: ' + this.numero);
+                });
+            }
+
+        }
+
+        for (var mesa of mesa5) {
+            var mesaFigura = lienzo.circle(100).attr({
+                fill: mesa.color
+            }).move(mesa.posicion.x, mesa.posicion.y);
+
+            for (var silla of mesa.sillas) {
+                var color = silla.ocupada ? mesa.color : silla.color;
+
+                var sillaFigura = lienzo.circle(20).attr({
+                    fill: color
+                }).move(silla.posicion.x, silla.posicion.y);
+
+                sillaFigura.numero = silla.numero;
+
+                // Adjunta el evento click con su callback para responder por cada silla.
+                // Aquí se pueden enviar datos al servidor si se requiere.
+                sillaFigura.click(function() {
+                    this.attr({
+                        fill: '#00c853'
+                    })
+                    console.log('Seleccionaste la silla: ' + this.numero);
+                });
+            }
+
+        }
+
+        for (var mesa of mesa6) {
+            var mesaFigura = lienzo.circle(100).attr({
+                fill: mesa.color
+            }).move(mesa.posicion.x, mesa.posicion.y);
+
+            for (var silla of mesa.sillas) {
+                var color = silla.ocupada ? mesa.color : silla.color;
+
+                var sillaFigura = lienzo.circle(20).attr({
+                    fill: color
+                }).move(silla.posicion.x, silla.posicion.y);
+
+                sillaFigura.numero = silla.numero;
+
+                // Adjunta el evento click con su callback para responder por cada silla.
+                // Aquí se pueden enviar datos al servidor si se requiere.
+                sillaFigura.click(function() {
+                    this.attr({
+                        fill: '#00c853'
+                    })
+                    console.log('Seleccionaste la silla: ' + this.numero);
+                });
+            }
+
+        }
+
+
+        for (var mesa of mesa7) {
+            var mesaFigura = lienzo.circle(100).attr({
+                fill: mesa.color
+            }).move(mesa.posicion.x, mesa.posicion.y);
+
+            for (var silla of mesa.sillas) {
+                var color = silla.ocupada ? mesa.color : silla.color;
+
+                var sillaFigura = lienzo.circle(20).attr({
+                    fill: color
+                }).move(silla.posicion.x, silla.posicion.y);
+
+                sillaFigura.numero = silla.numero;
+
+                // Adjunta el evento click con su callback para responder por cada silla.
+                // Aquí se pueden enviar datos al servidor si se requiere.
+                sillaFigura.click(function() {
+                    this.attr({
+                        fill: '#00c853'
+                    })
+                    console.log('Seleccionaste la silla: ' + this.numero);
+                });
+            }
+
+        }
+
+        for (var mesa of mesa8) {
+            var mesaFigura = lienzo.circle(100).attr({
+                fill: mesa.color
+            }).move(mesa.posicion.x, mesa.posicion.y);
+
+            for (var silla of mesa.sillas) {
+                var color = silla.ocupada ? mesa.color : silla.color;
+
+                var sillaFigura = lienzo.circle(20).attr({
+                    fill: color
+                }).move(silla.posicion.x, silla.posicion.y);
+
+                sillaFigura.numero = silla.numero;
+
+                // Adjunta el evento click con su callback para responder por cada silla.
+                // Aquí se pueden enviar datos al servidor si se requiere.
+                sillaFigura.click(function() {
+                    this.attr({
+                        fill: '#00c853'
+                    })
+                    console.log('Seleccionaste la silla: ' + this.numero);
+                });
+            }
+
+        }
+
+
+        for (var mesa of mesa9) {
+            var mesaFigura = lienzo.circle(100).attr({
+                fill: mesa.color
+            }).move(mesa.posicion.x, mesa.posicion.y);
+
+            for (var silla of mesa.sillas) {
+                var color = silla.ocupada ? mesa.color : silla.color;
+
+                var sillaFigura = lienzo.circle(20).attr({
+                    fill: color
+                }).move(silla.posicion.x, silla.posicion.y);
+
+                sillaFigura.numero = silla.numero;
+
+                // Adjunta el evento click con su callback para responder por cada silla.
+                // Aquí se pueden enviar datos al servidor si se requiere.
+                sillaFigura.click(function() {
+                    this.attr({
+                        fill: '#00c853'
+                    })
+                    console.log('Seleccionaste la silla: ' + this.numero);
+                });
+            }
+
+        }
+
+        for (var mesa of mesa10) {
+            var mesaFigura = lienzo.circle(100).attr({
+                fill: mesa.color
+            }).move(mesa.posicion.x, mesa.posicion.y);
+
+            for (var silla of mesa.sillas) {
+                var color = silla.ocupada ? mesa.color : silla.color;
+
+                var sillaFigura = lienzo.circle(20).attr({
+                    fill: color
+                }).move(silla.posicion.x, silla.posicion.y);
+
+                sillaFigura.numero = silla.numero;
+
+                // Adjunta el evento click con su callback para responder por cada silla.
+                // Aquí se pueden enviar datos al servidor si se requiere.
+                sillaFigura.click(function() {
+                    this.attr({
+                        fill: '#00c853'
+                    })
+                    console.log('Seleccionaste la silla: ' + this.numero);
+                });
+            }
+
+        }
+
+        /////////////////////////////
+
+
+
+
+
+
+        for (var mesa of mesa11) {
+            var mesaFigura = lienzo.circle(100).attr({
+                fill: mesa.color
+            }).move(mesa.posicion.x, mesa.posicion.y);
+
+            for (var silla of mesa.sillas) {
+                var color = silla.ocupada ? mesa.color : silla.color;
+
+                var sillaFigura = lienzo.circle(20).attr({
+                    fill: color
+                }).move(silla.posicion.x, silla.posicion.y);
+
+                sillaFigura.numero = silla.numero;
+
+                // Adjunta el evento click con su callback para responder por cada silla.
+                // Aquí se pueden enviar datos al servidor si se requiere.
+                sillaFigura.click(function() {
+                    this.attr({
+                        fill: '#00c853'
+                    })
+                    console.log('Seleccionaste la silla: ' + this.numero);
+                });
+            }
+
+        }
+
+
+
+        for (var mesa of mesa12) {
+            var mesaFigura = lienzo.circle(100).attr({
+                fill: mesa.color
+            }).move(mesa.posicion.x, mesa.posicion.y);
+
+            for (var silla of mesa.sillas) {
+                var color = silla.ocupada ? mesa.color : silla.color;
+
+                var sillaFigura = lienzo.circle(20).attr({
+                    fill: color
+                }).move(silla.posicion.x, silla.posicion.y);
+
+                sillaFigura.numero = silla.numero;
+
+                // Adjunta el evento click con su callback para responder por cada silla.
+                // Aquí se pueden enviar datos al servidor si se requiere.
+                sillaFigura.click(function() {
+                    this.attr({
+                        fill: '#00c853'
+                    })
+                    console.log('Seleccionaste la silla: ' + this.numero);
+                });
+            }
+
+        }
+
+        for (var mesa of mesa13) {
+            var mesaFigura = lienzo.circle(100).attr({
+                fill: mesa.color
+            }).move(mesa.posicion.x, mesa.posicion.y);
+
+            for (var silla of mesa.sillas) {
+                var color = silla.ocupada ? mesa.color : silla.color;
+
+                var sillaFigura = lienzo.circle(20).attr({
+                    fill: color
+                }).move(silla.posicion.x, silla.posicion.y);
+
+                sillaFigura.numero = silla.numero;
+
+                // Adjunta el evento click con su callback para responder por cada silla.
+                // Aquí se pueden enviar datos al servidor si se requiere.
+                sillaFigura.click(function() {
+                    this.attr({
+                        fill: '#00c853'
+                    })
+                    console.log('Seleccionaste la silla: ' + this.numero);
+                });
+            }
+        }
+
+        for (var mesa of mesa14) {
+            var mesaFigura = lienzo.circle(100).attr({
+                fill: mesa.color
+            }).move(mesa.posicion.x, mesa.posicion.y);
+
+            for (var silla of mesa.sillas) {
+                var color = silla.ocupada ? mesa.color : silla.color;
+
+                var sillaFigura = lienzo.circle(20).attr({
+                    fill: color
+                }).move(silla.posicion.x, silla.posicion.y);
+
+                sillaFigura.numero = silla.numero;
+
+                // Adjunta el evento click con su callback para responder por cada silla.
+                // Aquí se pueden enviar datos al servidor si se requiere.
+                sillaFigura.click(function() {
+                    this.attr({
+                        fill: '#00c853'
+                    })
+                    console.log('Seleccionaste la silla: ' + this.numero);
+                });
+            }
+
+        }
+
+        for (var mesa of mesa15) {
+            var mesaFigura = lienzo.circle(100).attr({
+                fill: mesa.color
+            }).move(mesa.posicion.x, mesa.posicion.y);
+
+            for (var silla of mesa.sillas) {
+                var color = silla.ocupada ? mesa.color : silla.color;
+
+                var sillaFigura = lienzo.circle(20).attr({
+                    fill: color
+                }).move(silla.posicion.x, silla.posicion.y);
+
+                sillaFigura.numero = silla.numero;
+
+                // Adjunta el evento click con su callback para responder por cada silla.
+                // Aquí se pueden enviar datos al servidor si se requiere.
+                sillaFigura.click(function() {
+                    this.attr({
+                        fill: '#00c853'
+                    })
+                    console.log('Seleccionaste la silla: ' + this.numero);
+                });
+            }
+
+        }
+
+        for (var mesa of mesa16) {
+            var mesaFigura = lienzo.circle(100).attr({
+                fill: mesa.color
+            }).move(mesa.posicion.x, mesa.posicion.y);
+
+            for (var silla of mesa.sillas) {
+                var color = silla.ocupada ? mesa.color : silla.color;
+
+                var sillaFigura = lienzo.circle(20).attr({
+                    fill: color
+                }).move(silla.posicion.x, silla.posicion.y);
+
+                sillaFigura.numero = silla.numero;
+
+                // Adjunta el evento click con su callback para responder por cada silla.
+                // Aquí se pueden enviar datos al servidor si se requiere.
+                sillaFigura.click(function() {
+                    this.attr({
+                        fill: '#00c853'
+                    })
+                    console.log('Seleccionaste la silla: ' + this.numero);
+                });
+            }
+
+        }
+
+
+        for (var mesa of mesa17) {
+            var mesaFigura = lienzo.circle(100).attr({
+                fill: mesa.color
+            }).move(mesa.posicion.x, mesa.posicion.y);
+
+            for (var silla of mesa.sillas) {
+                var color = silla.ocupada ? mesa.color : silla.color;
+
+                var sillaFigura = lienzo.circle(20).attr({
+                    fill: color
+                }).move(silla.posicion.x, silla.posicion.y);
+
+                sillaFigura.numero = silla.numero;
+
+                // Adjunta el evento click con su callback para responder por cada silla.
+                // Aquí se pueden enviar datos al servidor si se requiere.
+                sillaFigura.click(function() {
+                    this.attr({
+                        fill: '#00c853'
+                    })
+                    console.log('Seleccionaste la silla: ' + this.numero);
+                });
+            }
+
+        }
+
+        for (var mesa of mesa18) {
+            var mesaFigura = lienzo.circle(100).attr({
+                fill: mesa.color
+            }).move(mesa.posicion.x, mesa.posicion.y);
+
+            for (var silla of mesa.sillas) {
+                var color = silla.ocupada ? mesa.color : silla.color;
+
+                var sillaFigura = lienzo.circle(20).attr({
+                    fill: color
+                }).move(silla.posicion.x, silla.posicion.y);
+
+                sillaFigura.numero = silla.numero;
+
+                // Adjunta el evento click con su callback para responder por cada silla.
+                // Aquí se pueden enviar datos al servidor si se requiere.
+                sillaFigura.click(function() {
+                    this.attr({
+                        fill: '#00c853'
+                    })
+                    console.log('Seleccionaste la silla: ' + this.numero);
+                });
+            }
+
+        }
+
+
+        for (var mesa of mesa19) {
+            var mesaFigura = lienzo.circle(100).attr({
+                fill: mesa.color
+            }).move(mesa.posicion.x, mesa.posicion.y);
+
+            for (var silla of mesa.sillas) {
+                var color = silla.ocupada ? mesa.color : silla.color;
+
+                var sillaFigura = lienzo.circle(20).attr({
+                    fill: color
+                }).move(silla.posicion.x, silla.posicion.y);
+
+                sillaFigura.numero = silla.numero;
+
+                // Adjunta el evento click con su callback para responder por cada silla.
+                // Aquí se pueden enviar datos al servidor si se requiere.
+                sillaFigura.click(function() {
+                    this.attr({
+                        fill: '#00c853'
+                    })
+                    console.log('Seleccionaste la silla: ' + this.numero);
+                });
+            }
+
+        }
+
+        for (var mesa of mesa20) {
+            var mesaFigura = lienzo.circle(100).attr({
+                fill: mesa.color
+            }).move(mesa.posicion.x, mesa.posicion.y);
+
+            for (var silla of mesa.sillas) {
+                var color = silla.ocupada ? mesa.color : silla.color;
+
+                var sillaFigura = lienzo.circle(20).attr({
+                    fill: color
+                }).move(silla.posicion.x, silla.posicion.y);
+
+                sillaFigura.numero = silla.numero;
+
+                // Adjunta el evento click con su callback para responder por cada silla.
+                // Aquí se pueden enviar datos al servidor si se requiere.
+                sillaFigura.click(function() {
+                    this.attr({
+                        fill: '#00c853'
+                    })
+                    console.log('Seleccionaste la silla: ' + this.numero);
+                });
+            }
+
+        }
+
+    </script>
+    <a href="#"><img src="pictures/Fleca.png" title="Ir arriba" style="position: fixed; bottom: 10px; right: 2%;" height="50" /></a>
+</body>
+
+</html>

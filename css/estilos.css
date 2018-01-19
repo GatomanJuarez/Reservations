@@ -1,0 +1,10 @@
+body {
+    background-color: #314A5A;
+    color: white;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.margen {
+    border-radius: 30px;
+    border-color: #19A696;
+}
