@@ -1,17 +1,25 @@
+<?php
+    session_start();
+?>
 <html>
 
 <head>
     <meta charset="utf-8">
-    <title>KAD</title>
-
+    <title>Reservaciones Aqui</title>
 </head>
-
-<body background="pictures/Pared.jpg">
+<body background="pictures/Pared.jpg" style = "background-repeat: no-repeat">
+    <header style = "background: black">
+        <?php
+            echo(
+                "<p style = \"color: white; padding: 5px\">
+                Bienvenid@ ".$_SESSION["nombre"]."<br>
+                Puedes reservar hasta ".$_SESSION["sillas"]." Asientos aún no reservados.</p>"
+            );
+        ?>
+    </header>
     <div id="lienzo">
             
                 </div>
-    
-
 
     <script src="js/svg.min.js"></script>
     <script>
@@ -119,7 +127,7 @@
                 y: 140
             },
             sillas: [{
-                numero: 1,
+                numero: 11,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -127,7 +135,7 @@
                     y: 140
                 }
             }, {
-                numero: 2,
+                numero: 12,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -135,7 +143,7 @@
                     y: 115
                 }
             }, {
-                numero: 3,
+                numero: 13,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -143,7 +151,7 @@
                     y: 115
                 }
             }, {
-                numero: 4,
+                numero: 14,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -151,7 +159,7 @@
                     y: 150
                 }
             }, {
-                numero: 5,
+                numero: 15,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -159,7 +167,7 @@
                     y: 190
                 }
             }, {
-                numero: 6,
+                numero: 16,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -167,7 +175,7 @@
                     y: 220
                 }
             }, {
-                numero: 7,
+                numero: 17,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -175,7 +183,7 @@
                     y: 245
                 }
             }, {
-                numero: 8,
+                numero: 18,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -183,7 +191,7 @@
                     y: 245
                 }
             }, {
-                numero: 9,
+                numero: 19,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -191,7 +199,7 @@
                     y: 230
                 }
             }, {
-                numero: 10,
+                numero: 20,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -210,7 +218,7 @@
                 y: 140
             },
             sillas: [{
-                numero: 1,
+                numero: 21,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -218,7 +226,7 @@
                     y: 140
                 }
             }, {
-                numero: 2,
+                numero: 22,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -226,7 +234,7 @@
                     y: 115
                 }
             }, {
-                numero: 3,
+                numero: 23,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -234,7 +242,7 @@
                     y: 115
                 }
             }, {
-                numero: 4,
+                numero: 24,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -242,7 +250,7 @@
                     y: 150
                 }
             }, {
-                numero: 5,
+                numero: 25,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -250,7 +258,7 @@
                     y: 190
                 }
             }, {
-                numero: 6,
+                numero: 26,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -258,7 +266,7 @@
                     y: 220
                 }
             }, {
-                numero: 7,
+                numero: 27,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -266,7 +274,7 @@
                     y: 245
                 }
             }, {
-                numero: 8,
+                numero: 28,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -274,7 +282,7 @@
                     y: 245
                 }
             }, {
-                numero: 9,
+                numero: 29,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -282,7 +290,7 @@
                     y: 230
                 }
             }, {
-                numero: 10,
+                numero: 30,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -301,7 +309,7 @@
                 y: 140
             },
             sillas: [{
-                numero: 1,
+                numero: 31,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -309,7 +317,7 @@
                     y: 140
                 }
             }, {
-                numero: 2,
+                numero: 32,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -317,7 +325,7 @@
                     y: 115
                 }
             }, {
-                numero: 3,
+                numero: 33,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -325,7 +333,7 @@
                     y: 115
                 }
             }, {
-                numero: 4,
+                numero: 34,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -333,7 +341,7 @@
                     y: 150
                 }
             }, {
-                numero: 5,
+                numero: 35,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -341,7 +349,7 @@
                     y: 190
                 }
             }, {
-                numero: 6,
+                numero: 36,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -349,7 +357,7 @@
                     y: 220
                 }
             }, {
-                numero: 7,
+                numero: 37,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -357,7 +365,7 @@
                     y: 245
                 }
             }, {
-                numero: 8,
+                numero: 38,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -365,7 +373,7 @@
                     y: 245
                 }
             }, {
-                numero: 9,
+                numero: 39,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -373,7 +381,7 @@
                     y: 230
                 }
             }, {
-                numero: 10,
+                numero: 40,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -392,7 +400,7 @@
                 y: 140
             },
             sillas: [{
-                numero: 1,
+                numero: 41,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -400,7 +408,7 @@
                     y: 140
                 }
             }, {
-                numero: 2,
+                numero: 42,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -408,7 +416,7 @@
                     y: 115
                 }
             }, {
-                numero: 3,
+                numero: 43,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -416,7 +424,7 @@
                     y: 115
                 }
             }, {
-                numero: 4,
+                numero: 44,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -424,7 +432,7 @@
                     y: 150
                 }
             }, {
-                numero: 5,
+                numero: 45,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -432,7 +440,7 @@
                     y: 190
                 }
             }, {
-                numero: 6,
+                numero: 46,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -440,7 +448,7 @@
                     y: 220
                 }
             }, {
-                numero: 7,
+                numero: 47,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -448,7 +456,7 @@
                     y: 245
                 }
             }, {
-                numero: 8,
+                numero: 48,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -456,7 +464,7 @@
                     y: 245
                 }
             }, {
-                numero: 9,
+                numero: 49,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -464,7 +472,7 @@
                     y: 230
                 }
             }, {
-                numero: 10,
+                numero: 50,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -483,7 +491,7 @@
                 y: 340
             },
             sillas: [{
-                    numero: 1,
+                    numero: 51,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -491,7 +499,7 @@
                         y: 340
                     }
                 }, {
-                    numero: 2,
+                    numero: 52,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -499,7 +507,7 @@
                         y: 315
                     }
                 }, {
-                    numero: 3,
+                    numero: 53,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -507,7 +515,7 @@
                         y: 315
                     }
                 }, {
-                    numero: 4,
+                    numero: 54,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -515,7 +523,7 @@
                         y: 350
                     }
                 }, {
-                    numero: 5,
+                    numero: 55,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -523,7 +531,7 @@
                         y: 390
                     }
                 }, {
-                    numero: 6,
+                    numero: 56,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -531,7 +539,7 @@
                         y: 420
                     }
                 }, {
-                    numero: 7,
+                    numero: 57,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -539,7 +547,7 @@
                         y: 445
                     }
                 }, {
-                    numero: 8,
+                    numero: 58,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -547,7 +555,7 @@
                         y: 445
                     }
                 }, {
-                    numero: 9,
+                    numero: 59,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -555,7 +563,7 @@
                         y: 430
                     }
                 }, {
-                    numero: 10,
+                    numero: 60,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -577,7 +585,7 @@
                 y: 340
             },
             sillas: [{
-                numero: 1,
+                numero: 61,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -585,7 +593,7 @@
                     y: 340
                 }
             }, {
-                numero: 2,
+                numero: 62,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -593,7 +601,7 @@
                     y: 315
                 }
             }, {
-                numero: 3,
+                numero: 63,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -601,7 +609,7 @@
                     y: 315
                 }
             }, {
-                numero: 4,
+                numero: 64,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -609,7 +617,7 @@
                     y: 350
                 }
             }, {
-                numero: 5,
+                numero: 65,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -617,7 +625,7 @@
                     y: 390
                 }
             }, {
-                numero: 6,
+                numero: 66,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -625,7 +633,7 @@
                     y: 420
                 }
             }, {
-                numero: 7,
+                numero: 67,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -633,7 +641,7 @@
                     y: 445
                 }
             }, {
-                numero: 8,
+                numero: 68,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -641,7 +649,7 @@
                     y: 445
                 }
             }, {
-                numero: 9,
+                numero: 69,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -649,7 +657,7 @@
                     y: 430
                 }
             }, {
-                numero: 10,
+                numero: 70,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -668,7 +676,7 @@
                 y: 340
             },
             sillas: [{
-                numero: 1,
+                numero: 71,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -676,7 +684,7 @@
                     y: 340
                 }
             }, {
-                numero: 2,
+                numero: 72,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -684,7 +692,7 @@
                     y: 315
                 }
             }, {
-                numero: 3,
+                numero: 73,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -692,7 +700,7 @@
                     y: 315
                 }
             }, {
-                numero: 4,
+                numero: 74,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -700,7 +708,7 @@
                     y: 350
                 }
             }, {
-                numero: 5,
+                numero: 75,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -708,7 +716,7 @@
                     y: 390
                 }
             }, {
-                numero: 6,
+                numero: 76,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -716,7 +724,7 @@
                     y: 420
                 }
             }, {
-                numero: 7,
+                numero: 77,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -724,7 +732,7 @@
                     y: 445
                 }
             }, {
-                numero: 8,
+                numero: 78,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -732,7 +740,7 @@
                     y: 445
                 }
             }, {
-                numero: 9,
+                numero: 79,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -740,7 +748,7 @@
                     y: 430
                 }
             }, {
-                numero: 10,
+                numero: 80,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -759,7 +767,7 @@
                 y: 340
             },
             sillas: [{
-                numero: 1,
+                numero: 81,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -767,7 +775,7 @@
                     y: 340
                 }
             }, {
-                numero: 2,
+                numero: 82,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -775,7 +783,7 @@
                     y: 315
                 }
             }, {
-                numero: 3,
+                numero: 83,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -783,7 +791,7 @@
                     y: 315
                 }
             }, {
-                numero: 4,
+                numero: 84,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -791,7 +799,7 @@
                     y: 350
                 }
             }, {
-                numero: 5,
+                numero: 85,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -799,7 +807,7 @@
                     y: 390
                 }
             }, {
-                numero: 6,
+                numero: 86,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -807,7 +815,7 @@
                     y: 420
                 }
             }, {
-                numero: 7,
+                numero: 87,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -815,7 +823,7 @@
                     y: 445
                 }
             }, {
-                numero: 8,
+                numero: 88,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -823,7 +831,7 @@
                     y: 445
                 }
             }, {
-                numero: 9,
+                numero: 89,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -831,7 +839,7 @@
                     y: 430
                 }
             }, {
-                numero: 10,
+                numero: 90,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -850,7 +858,7 @@
                 y: 340
             },
             sillas: [{
-                numero: 1,
+                numero: 91,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -858,7 +866,7 @@
                     y: 340
                 }
             }, {
-                numero: 2,
+                numero: 92,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -866,7 +874,7 @@
                     y: 315
                 }
             }, {
-                numero: 3,
+                numero: 93,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -874,7 +882,7 @@
                     y: 315
                 }
             }, {
-                numero: 4,
+                numero: 94,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -882,7 +890,7 @@
                     y: 350
                 }
             }, {
-                numero: 5,
+                numero: 95,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -890,7 +898,7 @@
                     y: 390
                 }
             }, {
-                numero: 6,
+                numero: 96,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -898,7 +906,7 @@
                     y: 420
                 }
             }, {
-                numero: 7,
+                numero: 97,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -906,7 +914,7 @@
                     y: 445
                 }
             }, {
-                numero: 8,
+                numero: 98,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -914,7 +922,7 @@
                     y: 445
                 }
             }, {
-                numero: 9,
+                numero: 99,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -922,7 +930,7 @@
                     y: 430
                 }
             }, {
-                numero: 10,
+                numero: 100,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -945,7 +953,7 @@
                 y: 540
             },
             sillas: [{
-                    numero: 1,
+                    numero: 101,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -953,7 +961,7 @@
                         y: 540
                     }
                 }, {
-                    numero: 2,
+                    numero: 102,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -961,7 +969,7 @@
                         y: 515
                     }
                 }, {
-                    numero: 3,
+                    numero: 103,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -969,7 +977,7 @@
                         y: 515
                     }
                 }, {
-                    numero: 4,
+                    numero: 104,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -977,7 +985,7 @@
                         y: 550
                     }
                 }, {
-                    numero: 5,
+                    numero: 105,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -985,7 +993,7 @@
                         y: 590
                     }
                 }, {
-                    numero: 6,
+                    numero: 106,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -993,7 +1001,7 @@
                         y: 620
                     }
                 }, {
-                    numero: 7,
+                    numero: 107,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -1001,7 +1009,7 @@
                         y: 645
                     }
                 }, {
-                    numero: 8,
+                    numero: 108,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -1009,7 +1017,7 @@
                         y: 645
                     }
                 }, {
-                    numero: 9,
+                    numero: 109,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -1017,7 +1025,7 @@
                         y: 630
                     }
                 }, {
-                    numero: 10,
+                    numero: 110,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -1039,7 +1047,7 @@
                 y: 540
             },
             sillas: [{
-                numero: 1,
+                numero: 111,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1047,7 +1055,7 @@
                     y: 540
                 }
             }, {
-                numero: 2,
+                numero: 112,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1055,7 +1063,7 @@
                     y: 515
                 }
             }, {
-                numero: 3,
+                numero: 113,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1063,7 +1071,7 @@
                     y: 515
                 }
             }, {
-                numero: 4,
+                numero: 114,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1071,7 +1079,7 @@
                     y: 550
                 }
             }, {
-                numero: 5,
+                numero: 115,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1079,7 +1087,7 @@
                     y: 590
                 }
             }, {
-                numero: 6,
+                numero: 116,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1087,7 +1095,7 @@
                     y: 620
                 }
             }, {
-                numero: 7,
+                numero: 117,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1095,7 +1103,7 @@
                     y: 645
                 }
             }, {
-                numero: 8,
+                numero: 118,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1103,7 +1111,7 @@
                     y: 645
                 }
             }, {
-                numero: 9,
+                numero: 119,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1111,7 +1119,7 @@
                     y: 630
                 }
             }, {
-                numero: 10,
+                numero: 120,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1130,7 +1138,7 @@
                 y: 540
             },
             sillas: [{
-                numero: 1,
+                numero: 121,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1138,7 +1146,7 @@
                     y: 540
                 }
             }, {
-                numero: 2,
+                numero: 122,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1146,7 +1154,7 @@
                     y: 515
                 }
             }, {
-                numero: 3,
+                numero: 123,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1154,7 +1162,7 @@
                     y: 515
                 }
             }, {
-                numero: 4,
+                numero: 124,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1162,7 +1170,7 @@
                     y: 550
                 }
             }, {
-                numero: 5,
+                numero: 125,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1170,7 +1178,7 @@
                     y: 590
                 }
             }, {
-                numero: 6,
+                numero: 126,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1178,7 +1186,7 @@
                     y: 620
                 }
             }, {
-                numero: 7,
+                numero: 127,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1186,7 +1194,7 @@
                     y: 645
                 }
             }, {
-                numero: 8,
+                numero: 128,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1194,7 +1202,7 @@
                     y: 645
                 }
             }, {
-                numero: 9,
+                numero: 129,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1202,7 +1210,7 @@
                     y: 630
                 }
             }, {
-                numero: 10,
+                numero: 130,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1221,7 +1229,7 @@
                 y: 540
             },
             sillas: [{
-                numero: 1,
+                numero: 131,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1229,7 +1237,7 @@
                     y: 540
                 }
             }, {
-                numero: 2,
+                numero: 132,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1237,7 +1245,7 @@
                     y: 515
                 }
             }, {
-                numero: 3,
+                numero: 133,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1245,7 +1253,7 @@
                     y: 515
                 }
             }, {
-                numero: 4,
+                numero: 134,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1253,7 +1261,7 @@
                     y: 550
                 }
             }, {
-                numero: 5,
+                numero: 135,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1261,7 +1269,7 @@
                     y: 590
                 }
             }, {
-                numero: 6,
+                numero: 136,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1269,7 +1277,7 @@
                     y: 620
                 }
             }, {
-                numero: 7,
+                numero: 137,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1277,7 +1285,7 @@
                     y: 645
                 }
             }, {
-                numero: 8,
+                numero: 138,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1285,7 +1293,7 @@
                     y: 645
                 }
             }, {
-                numero: 9,
+                numero: 139,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1293,7 +1301,7 @@
                     y: 630
                 }
             }, {
-                numero: 10,
+                numero: 140,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1312,7 +1320,7 @@
                 y: 540
             },
             sillas: [{
-                numero: 1,
+                numero: 141,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1320,7 +1328,7 @@
                     y: 540
                 }
             }, {
-                numero: 2,
+                numero: 142,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1328,7 +1336,7 @@
                     y: 515
                 }
             }, {
-                numero: 3,
+                numero: 143,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1336,7 +1344,7 @@
                     y: 515
                 }
             }, {
-                numero: 4,
+                numero: 144,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1344,7 +1352,7 @@
                     y: 550
                 }
             }, {
-                numero: 5,
+                numero: 145,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1352,7 +1360,7 @@
                     y: 590
                 }
             }, {
-                numero: 6,
+                numero: 146,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1360,7 +1368,7 @@
                     y: 220
                 }
             }, {
-                numero: 7,
+                numero: 147,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1368,7 +1376,7 @@
                     y: 645
                 }
             }, {
-                numero: 8,
+                numero: 148,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1376,7 +1384,7 @@
                     y: 645
                 }
             }, {
-                numero: 9,
+                numero: 149,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1384,7 +1392,7 @@
                     y: 630
                 }
             }, {
-                numero: 10,
+                numero: 150,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1403,7 +1411,7 @@
                 y: 740
             },
             sillas: [{
-                    numero: 1,
+                    numero: 151,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -1411,7 +1419,7 @@
                         y: 740
                     }
                 }, {
-                    numero: 2,
+                    numero: 152,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -1419,7 +1427,7 @@
                         y: 715
                     }
                 }, {
-                    numero: 3,
+                    numero: 153,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -1427,7 +1435,7 @@
                         y: 715
                     }
                 }, {
-                    numero: 4,
+                    numero: 154,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -1435,7 +1443,7 @@
                         y: 750
                     }
                 }, {
-                    numero: 5,
+                    numero: 155,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -1443,7 +1451,7 @@
                         y: 790
                     }
                 }, {
-                    numero: 6,
+                    numero: 156,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -1451,7 +1459,7 @@
                         y: 820
                     }
                 }, {
-                    numero: 7,
+                    numero: 157,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -1459,7 +1467,7 @@
                         y: 845
                     }
                 }, {
-                    numero: 8,
+                    numero: 158,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -1467,7 +1475,7 @@
                         y: 845
                     }
                 }, {
-                    numero: 9,
+                    numero: 159,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -1475,7 +1483,7 @@
                         y: 830
                     }
                 }, {
-                    numero: 10,
+                    numero: 160,
                     color: '#30f6ff',
                     ocupada: false,
                     posicion: {
@@ -1497,7 +1505,7 @@
                 y: 740
             },
             sillas: [{
-                numero: 1,
+                numero: 161,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1505,7 +1513,7 @@
                     y: 740
                 }
             }, {
-                numero: 2,
+                numero: 162,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1513,7 +1521,7 @@
                     y: 715
                 }
             }, {
-                numero: 3,
+                numero: 163,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1521,7 +1529,7 @@
                     y: 715
                 }
             }, {
-                numero: 4,
+                numero: 164,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1529,7 +1537,7 @@
                     y: 750
                 }
             }, {
-                numero: 5,
+                numero: 165,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1537,7 +1545,7 @@
                     y: 790
                 }
             }, {
-                numero: 6,
+                numero: 166,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1545,7 +1553,7 @@
                     y: 820
                 }
             }, {
-                numero: 7,
+                numero: 167,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1553,7 +1561,7 @@
                     y: 845
                 }
             }, {
-                numero: 8,
+                numero: 168,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1561,7 +1569,7 @@
                     y: 845
                 }
             }, {
-                numero: 9,
+                numero: 169,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1569,7 +1577,7 @@
                     y: 830
                 }
             }, {
-                numero: 10,
+                numero: 170,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1588,7 +1596,7 @@
                 y: 740
             },
             sillas: [{
-                numero: 1,
+                numero: 171,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1596,7 +1604,7 @@
                     y: 740
                 }
             }, {
-                numero: 2,
+                numero: 172,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1604,7 +1612,7 @@
                     y: 715
                 }
             }, {
-                numero: 3,
+                numero: 173,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1612,7 +1620,7 @@
                     y: 715
                 }
             }, {
-                numero: 4,
+                numero: 174,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1620,7 +1628,7 @@
                     y: 750
                 }
             }, {
-                numero: 5,
+                numero: 175,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1628,7 +1636,7 @@
                     y: 790
                 }
             }, {
-                numero: 6,
+                numero: 176,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1636,7 +1644,7 @@
                     y: 820
                 }
             }, {
-                numero: 7,
+                numero: 177,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1644,7 +1652,7 @@
                     y: 845
                 }
             }, {
-                numero: 8,
+                numero: 178,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1652,7 +1660,7 @@
                     y: 845
                 }
             }, {
-                numero: 9,
+                numero: 179,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1660,7 +1668,7 @@
                     y: 830
                 }
             }, {
-                numero: 10,
+                numero: 180,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1679,7 +1687,7 @@
                 y: 740
             },
             sillas: [{
-                numero: 1,
+                numero: 181,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1687,7 +1695,7 @@
                     y: 740
                 }
             }, {
-                numero: 2,
+                numero: 182,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1695,7 +1703,7 @@
                     y: 715
                 }
             }, {
-                numero: 3,
+                numero: 183,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1703,7 +1711,7 @@
                     y: 715
                 }
             }, {
-                numero: 4,
+                numero: 184,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1711,7 +1719,7 @@
                     y: 750
                 }
             }, {
-                numero: 5,
+                numero: 185,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1719,7 +1727,7 @@
                     y: 790
                 }
             }, {
-                numero: 6,
+                numero: 186,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1727,7 +1735,7 @@
                     y: 820
                 }
             }, {
-                numero: 7,
+                numero: 187,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1735,7 +1743,7 @@
                     y: 845
                 }
             }, {
-                numero: 8,
+                numero: 188,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1743,7 +1751,7 @@
                     y: 845
                 }
             }, {
-                numero: 9,
+                numero: 189,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1751,7 +1759,7 @@
                     y: 830
                 }
             }, {
-                numero: 10,
+                numero: 190,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1770,7 +1778,7 @@
                 y: 740
             },
             sillas: [{
-                numero: 1,
+                numero: 191,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1778,7 +1786,7 @@
                     y: 740
                 }
             }, {
-                numero: 2,
+                numero: 192,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1786,7 +1794,7 @@
                     y: 715
                 }
             }, {
-                numero: 3,
+                numero: 193,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1794,7 +1802,7 @@
                     y: 715
                 }
             }, {
-                numero: 4,
+                numero: 194,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1802,7 +1810,7 @@
                     y: 750
                 }
             }, {
-                numero: 5,
+                numero: 195,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1810,7 +1818,7 @@
                     y: 790
                 }
             }, {
-                numero: 6,
+                numero: 196,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1818,7 +1826,7 @@
                     y: 820
                 }
             }, {
-                numero: 7,
+                numero: 197,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1826,7 +1834,7 @@
                     y: 845
                 }
             }, {
-                numero: 8,
+                numero: 198,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1834,7 +1842,7 @@
                     y: 845
                 }
             }, {
-                numero: 9,
+                numero: 199,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {
@@ -1842,7 +1850,7 @@
                     y: 830
                 }
             }, {
-                numero: 10,
+                numero: 200,
                 color: '#30f6ff',
                 ocupada: false,
                 posicion: {

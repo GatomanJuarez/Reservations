@@ -16,3 +16,14 @@ html{
 input[type="submit"]{
     margin-top: 4px;
 }
+
+
+.boxticket{
+    border-radius: 4px;
+    box-shadow: 0px 2px 10px;
+    margin: 55px auto;
+    width: 320px;
+    height: 520px;
+    -webki-border-radius: 4px;
+    -moz-border-radius: 4px;
+}
