@@ -5,7 +5,7 @@ $PATERNO = $_POST["paterno"];
 $MATERNO = $_POST["materno"];
 $CLAVE = $_POST["clave"];
 $SILLAS = $_POST["sillas"];
-$PAGADO = $_POST["pagado"];
+$PAGADO = $_POST["contact"];
 
 $servidor = "localhost";
 $usuario = "root";
@@ -25,7 +25,7 @@ if ($conexion->connect_error) {
         $alumnos_insert = $conexion->query($sql_insert);
         $sql_alumnos = "SELECT * FROM alumnos";
         $res_alumnos = $conexion->query($sql_alumnos);
-        echo("El alumno ha sido registrado exitosamente :)");
+        header('Location: Exito.html');
         
     } catch (Exception $e) {
         echo("Error al agregar alumno: " . $e);

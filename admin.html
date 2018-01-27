@@ -26,7 +26,10 @@
                     <br>
                     <input type="text" name="sillas" id="sillas" class="form-control" placeholder="Sillas disponibles:" style="width: 80%" required>
                     <br>
-                    <input type="text" name="pagado" id="pagado" class="form-control" placeholder="Estatus:" style="width: 80%" required>
+                    <div>
+                            <input type="radio" id="contactChoice1"name="contact" value="1"><label for="contactChoice1">Pagado</label>
+                            <input type="radio" id="contactChoice2" name="contact" value="0"><label for="contactChoice2">Adeudado</label>
+                          </div>
                 <br>
                 <input type="submit" class="btn btn-success" value="Agregar">
                 </center>
