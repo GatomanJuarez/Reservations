@@ -1891,39 +1891,18 @@
 
                 sillaFigura.numero = silla.numero;
 
-                // Adjunta el evento click con su callback para responder por cada silla.
-                // Aquí se pueden enviar datos al servidor si se requiere.
-                if (sillaFigura.color = '#e0e0e0') {
+               
                     sillaFigura.click(function() {
-
+                        var mensaje = confirm("¿Deseas reservar esta mesa?");
+                    if (mensaje){
                         this.attr({
                             fill: '#00c853'
                         })
+                }
+                        
                     });
 
-                } else {
-                    //sillaFigura.click(function() {
-
-                    //  this.attr({
-                    //      fill: '#00c853'
-                    //  })});
-                    console.log('Hoaa');
-                }
-
-                // sillaFigura.click(function() {
-
-                //  this.attr({
-                //  fill: '#00c853'
-                //  })
-                // console.log('Seleccionaste la silla: ' + this.numero);
-                // if(sillaFigura.color = '#00c853'){
-                //   console.log('Hoaa');
-                //   sillaFigura.attr({fill: '#e0e0e0'})
-                //    sillaFigura.click(function() {
-
-                // this.attr({
-                //      fill: '#e0e0e0'
-                //  })});
+                
             }
         }
 
