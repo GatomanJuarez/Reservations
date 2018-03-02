@@ -38,64 +38,31 @@ $configuracion = file ('txt/reservados.txt');
         </header>
         
         <div id="lienzo"></div>
-        
-        <script src="js/ler.js"></script>
         <script src="js/svg.min.js"></script>
         <script>
-            var datosObtenidos = [datosObtenerNuevo1(), datosObtenerNuevo2(), datosObtenerNuevo3(), datosObtenerNuevo4(), datosObtenerNuevo5(),
-            datosObtenerNuevo6(), datosObtenerNuevo7(), datosObtenerNuevo8(), datosObtenerNuevo9(), datosObtenerNuevo10(), datosObtenerNuevo11(),
-            datosObtenerNuevo12(), datosObtenerNuevo13(), datosObtenerNuevo14(), datosObtenerNuevo15(), datosObtenerNuevo16(), datosObtenerNuevo17(),
-            datosObtenerNuevo18(),datosObtenerNuevo19(),datosObtenerNuevo20(),datosObtenerNuevo21(),datosObtenerNuevo22(),datosObtenerNuevo23(),
-            datosObtenerNuevo24(),datosObtenerNuevo25(),datosObtenerNuevo26(),datosObtenerNuevo27(),datosObtenerNuevo28(),datosObtenerNuevo29(),
-            datosObtenerNuevo30(),datosObtenerNuevo31(),datosObtenerNuevo32(),datosObtenerNuevo33(),datosObtenerNuevo34(),datosObtenerNuevo35()
-            ,datosObtenerNuevo36(),datosObtenerNuevo37(),datosObtenerNuevo38(),datosObtenerNuevo39(),datosObtenerNuevo40(),datosObtenerNuevo41()
-            ,datosObtenerNuevo42(),datosObtenerNuevo43(),datosObtenerNuevo44(),datosObtenerNuevo45(),datosObtenerNuevo46(),datosObtenerNuevo47()
-            ,datosObtenerNuevo48(),datosObtenerNuevo49(),datosObtenerNuevo50(),datosObtenerNuevo51(),datosObtenerNuevo52(),datosObtenerNuevo53()
-            ,datosObtenerNuevo54(),datosObtenerNuevo55(),datosObtenerNuevo56(),datosObtenerNuevo57(),datosObtenerNuevo58(),datosObtenerNuevo59()
-            ,datosObtenerNuevo60(),datosObtenerNuevo61(),datosObtenerNuevo62(),datosObtenerNuevo63(),datosObtenerNuevo64(),datosObtenerNuevo65()
-            ,datosObtenerNuevo66(),datosObtenerNuevo67(),datosObtenerNuevo68(),datosObtenerNuevo69(),datosObtenerNuevo70(),datosObtenerNuevo71()
-            ,datosObtenerNuevo72(),datosObtenerNuevo73(),datosObtenerNuevo74(),datosObtenerNuevo75(),datosObtenerNuevo76(),datosObtenerNuevo77()
-            ,datosObtenerNuevo78(),datosObtenerNuevo79(),datosObtenerNuevo80(),datosObtenerNuevo81(),datosObtenerNuevo82(),datosObtenerNuevo83()
-            ,datosObtenerNuevo84(),datosObtenerNuevo85(),datosObtenerNuevo86(),datosObtenerNuevo87(),datosObtenerNuevo88(),datosObtenerNuevo89()
-            ,datosObtenerNuevo90(),datosObtenerNuevo91(),datosObtenerNuevo92(),datosObtenerNuevo93(),datosObtenerNuevo94(),datosObtenerNuevo95()
-            ,datosObtenerNuevo96(),datosObtenerNuevo97(),datosObtenerNuevo98(),datosObtenerNuevo99(),datosObtenerNuevo100(),
-            datosObtenerNuevo101(), datosObtenerNuevo102(), datosObtenerNuevo103(), datosObtenerNuevo104(), datosObtenerNuevo105(),
-            datosObtenerNuevo106(), datosObtenerNuevo107(), datosObtenerNuevo108(), datosObtenerNuevo109(), datosObtenerNuevo110(), datosObtenerNuevo111(),
-            datosObtenerNuevo112(), datosObtenerNuevo113(), datosObtenerNuevo114(), datosObtenerNuevo15(), datosObtenerNuevo16(), datosObtenerNuevo117(),
-            datosObtenerNuevo118(),datosObtenerNuevo119(),datosObtenerNuevo120(),datosObtenerNuevo121(),datosObtenerNuevo122(),datosObtenerNuevo123(),
-            datosObtenerNuevo124(),datosObtenerNuevo125(),datosObtenerNuevo126(),datosObtenerNuevo127(),datosObtenerNuevo128(),datosObtenerNuevo129(),
-            datosObtenerNuevo130(),datosObtenerNuevo131(),datosObtenerNuevo132(),datosObtenerNuevo133(),datosObtenerNuevo134(),datosObtenerNuevo135()
-            ,datosObtenerNuevo136(),datosObtenerNuevo137(),datosObtenerNuevo138(),datosObtenerNuevo139(),datosObtenerNuevo140(),datosObtenerNuevo141()
-            ,datosObtenerNuevo142(),datosObtenerNuevo143(),datosObtenerNuevo144(),datosObtenerNuevo145(),datosObtenerNuevo146(),datosObtenerNuevo147()
-            ,datosObtenerNuevo148(),datosObtenerNuevo149(),datosObtenerNuevo150(),datosObtenerNuevo151(),datosObtenerNuevo152(),datosObtenerNuevo153()
-            ,datosObtenerNuevo154(),datosObtenerNuevo155(),datosObtenerNuevo156(),datosObtenerNuevo157(),datosObtenerNuevo158(),datosObtenerNuevo159()
-            ,datosObtenerNuevo160(),datosObtenerNuevo161(),datosObtenerNuevo162(),datosObtenerNuevo163(),datosObtenerNuevo164(),datosObtenerNuevo165()
-            ,datosObtenerNuevo167(),datosObtenerNuevo166(),datosObtenerNuevo168(),datosObtenerNuevo169(),datosObtenerNuevo170(),datosObtenerNuevo171()
-            ,datosObtenerNuevo172(),datosObtenerNuevo173(),datosObtenerNuevo174(),datosObtenerNuevo175(),datosObtenerNuevo176(),datosObtenerNuevo177()
-            ,datosObtenerNuevo178(),datosObtenerNuevo179(),datosObtenerNuevo180(),datosObtenerNuevo181(),datosObtenerNuevo182(),datosObtenerNuevo183()
-            ,datosObtenerNuevo184(),datosObtenerNuevo185(),datosObtenerNuevo186(),datosObtenerNuevo187(),datosObtenerNuevo188(),datosObtenerNuevo189()
-            ,datosObtenerNuevo190(),datosObtenerNuevo191(),datosObtenerNuevo192(),datosObtenerNuevo193(),datosObtenerNuevo194(),datosObtenerNuevo195()
-            ,datosObtenerNuevo196(),datosObtenerNuevo197(),datosObtenerNuevo198(),datosObtenerNuevo199(),datosObtenerNuevo200()
-        ];
-
-        console.log(datosObtenidos[166]);
-            //console.log(ver);
-            //vv = ver.split(' ');
-            console.log(datosObtenidos);
-
-           
-            
-            //console.log(datosObtenidos);
-            //console.log(datosObtenidos[0]);
+         function datosObtenerNuevoaa() {
+    var silla = 0;
+    var archivo = new XMLHttpRequest();
+    archivo.open("GET", "txt/reservados.txt", false);
+    archivo.onreadystatechange = function () {
+        if (archivo.readyState === 4) {
+            if (archivo.status === 200 || archivo.status == 0) {
+                var Texto = archivo.responseText;
+                silla = Texto;
+            }
+        }
+    }
+    archivo.send(null);
+    return silla;
+}
+        var datosObtenidos2 = datosObtenerNuevoaa();
+        var datosObtenidos = datosObtenidos2.split('\n');
+        console.log(datosObtenidos);
             var sillaReservada = [],
                 contador = 0,
                 sillasDisponibles;
-            
-            //sillasDisponibles = sillasObtener();
-           // console.log(sillasDisponibles + "ssssssssssssssss");
 
-            <?php
-            //echo($_SESSION["sillas"]);?>;
+               
            
             // Lienzo SVG donde serán creados todos los objetos
             var lienzo = SVG('lienzo').size('100%', '271%');
@@ -2887,25 +2854,23 @@ $configuracion = file ('txt/reservados.txt');
             }
 
             function mostrar() {
-                //console.log("Hoa");
-                //console.log(contador);
-                for (var i = 0; i < sillaReservada.length; i++) {
-                    //console.log(sillaReservada[i]);
-                }
-
-                //console.log(sillasDisponibles);
-                //console.log(contador);
-            
+                
+  
+              
                 var mensaje2 = confirm("¿Deseas guardar tus reservaciones?");
                 if (mensaje2) {
                     location.href = "reservar.php?sillas=" + sillaReservada;
+                   
                 }
-                  
+                
+              
+                //location.href = "actualizar.php?total=" + total;
                 
                 
                 }
-               
+                
             
+                
 
         </script>
         <a href="#"><img src="pictures/Fleca.png" title="Ir arriba" style="position: fixed; bottom: 10px; right: 2%;" height="50" /></a>

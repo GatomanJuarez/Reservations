@@ -16,7 +16,7 @@ if ($conexion->connect_error) {
     $idUsuario = $_SESSION["ID"];
     echo $idUsuario ."<br>";
     echo $SILLASD ."<br>";
-        $sql_insert = "UPDATE  alumnos SET  sillas = \"".$SILLASD."\" WHERE id = \"".$idUsuario."\"" ;
+        $sql_insert ;//= "UPDATE  alumnos SET  sillas = \"".$SILLASD."\" WHERE id = \"".$idUsuario."\"" ;
         try {
            $sillas_insert = $conexion->query($sql_insert);
            echo("Tú Reservación se ha hecho correctamente :)");  
