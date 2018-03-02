@@ -22,6 +22,8 @@ $configuracion = file ('txt/reservados.txt');
     <head>
         <meta charset="utf-8">
         <title>Reservaciones Aqui</title>
+        <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     </head>
 
     <body background="pictures/Pared.jpg" style="background-repeat: no-repeat">
@@ -34,7 +36,9 @@ $configuracion = file ('txt/reservados.txt');
             );
         ?>
         </header>
+        
         <div id="lienzo"></div>
+        
         <script src="js/ler.js"></script>
         <script src="js/svg.min.js"></script>
         <script>
@@ -2906,7 +2910,7 @@ $configuracion = file ('txt/reservados.txt');
         </script>
         <a href="#"><img src="pictures/Fleca.png" title="Ir arriba" style="position: fixed; bottom: 10px; right: 2%;" height="50" /></a>
         <a href="#"><img src="pictures/guardar2.png" title="Ir arriba" style="position: fixed; bottom: 10px; right: 8%;" height="50" onclick="mostrar()" /></a>
-
+        
     </body>
 
     </html>
