@@ -1,5 +1,21 @@
 <?php
     session_start();
+    $servidor = "localhost";
+$usuario = "root";
+$contra = "";
+$bd = "reservations";
+
+// Creando la conexion a la bd
+$conexion = new mysqli($servidor, $usuario, $contra, $bd);
+$conexion->set_charset("utf8");
+// Checando la conexion
+if ($conexion->connect_error) {
+    die("Conexion Fallida: " . $conexion->connect_error);
+}
+$configuracion = file ('txt/reservados.txt');
+            foreach ($configuracion as $pisos) {
+            //echo $pisos ."<br>";
+            }
 ?>
     <html>
 
@@ -18,12 +34,65 @@
             );
         ?>
         </header>
-        <div id="lienzo">
-
-        </div>
-
+        <div id="lienzo"></div>
+        <script src="js/ler.js"></script>
         <script src="js/svg.min.js"></script>
         <script>
+            var datosObtenidos = [datosObtenerNuevo1(), datosObtenerNuevo2(), datosObtenerNuevo3(), datosObtenerNuevo4(), datosObtenerNuevo5(),
+            datosObtenerNuevo6(), datosObtenerNuevo7(), datosObtenerNuevo8(), datosObtenerNuevo9(), datosObtenerNuevo10(), datosObtenerNuevo11(),
+            datosObtenerNuevo12(), datosObtenerNuevo13(), datosObtenerNuevo14(), datosObtenerNuevo15(), datosObtenerNuevo16(), datosObtenerNuevo17(),
+            datosObtenerNuevo18(),datosObtenerNuevo19(),datosObtenerNuevo20(),datosObtenerNuevo21(),datosObtenerNuevo22(),datosObtenerNuevo23(),
+            datosObtenerNuevo24(),datosObtenerNuevo25(),datosObtenerNuevo26(),datosObtenerNuevo27(),datosObtenerNuevo28(),datosObtenerNuevo29(),
+            datosObtenerNuevo30(),datosObtenerNuevo31(),datosObtenerNuevo32(),datosObtenerNuevo33(),datosObtenerNuevo34(),datosObtenerNuevo35()
+            ,datosObtenerNuevo36(),datosObtenerNuevo37(),datosObtenerNuevo38(),datosObtenerNuevo39(),datosObtenerNuevo40(),datosObtenerNuevo41()
+            ,datosObtenerNuevo42(),datosObtenerNuevo43(),datosObtenerNuevo44(),datosObtenerNuevo45(),datosObtenerNuevo46(),datosObtenerNuevo47()
+            ,datosObtenerNuevo48(),datosObtenerNuevo49(),datosObtenerNuevo50(),datosObtenerNuevo51(),datosObtenerNuevo52(),datosObtenerNuevo53()
+            ,datosObtenerNuevo54(),datosObtenerNuevo55(),datosObtenerNuevo56(),datosObtenerNuevo57(),datosObtenerNuevo58(),datosObtenerNuevo59()
+            ,datosObtenerNuevo60(),datosObtenerNuevo61(),datosObtenerNuevo62(),datosObtenerNuevo63(),datosObtenerNuevo64(),datosObtenerNuevo65()
+            ,datosObtenerNuevo66(),datosObtenerNuevo67(),datosObtenerNuevo68(),datosObtenerNuevo69(),datosObtenerNuevo70(),datosObtenerNuevo71()
+            ,datosObtenerNuevo72(),datosObtenerNuevo73(),datosObtenerNuevo74(),datosObtenerNuevo75(),datosObtenerNuevo76(),datosObtenerNuevo77()
+            ,datosObtenerNuevo78(),datosObtenerNuevo79(),datosObtenerNuevo80(),datosObtenerNuevo81(),datosObtenerNuevo82(),datosObtenerNuevo83()
+            ,datosObtenerNuevo84(),datosObtenerNuevo85(),datosObtenerNuevo86(),datosObtenerNuevo87(),datosObtenerNuevo88(),datosObtenerNuevo89()
+            ,datosObtenerNuevo90(),datosObtenerNuevo91(),datosObtenerNuevo92(),datosObtenerNuevo93(),datosObtenerNuevo94(),datosObtenerNuevo95()
+            ,datosObtenerNuevo96(),datosObtenerNuevo97(),datosObtenerNuevo98(),datosObtenerNuevo99(),datosObtenerNuevo100(),
+            datosObtenerNuevo101(), datosObtenerNuevo102(), datosObtenerNuevo103(), datosObtenerNuevo104(), datosObtenerNuevo105(),
+            datosObtenerNuevo106(), datosObtenerNuevo107(), datosObtenerNuevo108(), datosObtenerNuevo109(), datosObtenerNuevo110(), datosObtenerNuevo111(),
+            datosObtenerNuevo112(), datosObtenerNuevo113(), datosObtenerNuevo114(), datosObtenerNuevo15(), datosObtenerNuevo16(), datosObtenerNuevo117(),
+            datosObtenerNuevo118(),datosObtenerNuevo119(),datosObtenerNuevo120(),datosObtenerNuevo121(),datosObtenerNuevo122(),datosObtenerNuevo123(),
+            datosObtenerNuevo124(),datosObtenerNuevo125(),datosObtenerNuevo126(),datosObtenerNuevo127(),datosObtenerNuevo128(),datosObtenerNuevo129(),
+            datosObtenerNuevo130(),datosObtenerNuevo131(),datosObtenerNuevo132(),datosObtenerNuevo133(),datosObtenerNuevo134(),datosObtenerNuevo135()
+            ,datosObtenerNuevo136(),datosObtenerNuevo137(),datosObtenerNuevo138(),datosObtenerNuevo139(),datosObtenerNuevo140(),datosObtenerNuevo141()
+            ,datosObtenerNuevo142(),datosObtenerNuevo143(),datosObtenerNuevo144(),datosObtenerNuevo145(),datosObtenerNuevo146(),datosObtenerNuevo147()
+            ,datosObtenerNuevo148(),datosObtenerNuevo149(),datosObtenerNuevo150(),datosObtenerNuevo151(),datosObtenerNuevo152(),datosObtenerNuevo153()
+            ,datosObtenerNuevo154(),datosObtenerNuevo155(),datosObtenerNuevo156(),datosObtenerNuevo157(),datosObtenerNuevo158(),datosObtenerNuevo159()
+            ,datosObtenerNuevo160(),datosObtenerNuevo161(),datosObtenerNuevo162(),datosObtenerNuevo163(),datosObtenerNuevo164(),datosObtenerNuevo165()
+            ,datosObtenerNuevo167(),datosObtenerNuevo166(),datosObtenerNuevo168(),datosObtenerNuevo169(),datosObtenerNuevo170(),datosObtenerNuevo171()
+            ,datosObtenerNuevo172(),datosObtenerNuevo173(),datosObtenerNuevo174(),datosObtenerNuevo175(),datosObtenerNuevo176(),datosObtenerNuevo177()
+            ,datosObtenerNuevo178(),datosObtenerNuevo179(),datosObtenerNuevo180(),datosObtenerNuevo181(),datosObtenerNuevo182(),datosObtenerNuevo183()
+            ,datosObtenerNuevo184(),datosObtenerNuevo185(),datosObtenerNuevo186(),datosObtenerNuevo187(),datosObtenerNuevo188(),datosObtenerNuevo189()
+            ,datosObtenerNuevo190(),datosObtenerNuevo191(),datosObtenerNuevo192(),datosObtenerNuevo193(),datosObtenerNuevo194(),datosObtenerNuevo195()
+            ,datosObtenerNuevo196(),datosObtenerNuevo197(),datosObtenerNuevo198(),datosObtenerNuevo199(),datosObtenerNuevo200()
+        ];
+
+        console.log(datosObtenidos[166]);
+            //console.log(ver);
+            //vv = ver.split(' ');
+            console.log(datosObtenidos);
+
+           
+            
+            //console.log(datosObtenidos);
+            //console.log(datosObtenidos[0]);
+            var sillaReservada = [],
+                contador = 0,
+                sillasDisponibles;
+            
+            //sillasDisponibles = sillasObtener();
+           // console.log(sillasDisponibles + "ssssssssssssssss");
+
+            <?php
+            //echo($_SESSION["sillas"]);?>;
+           
             // Lienzo SVG donde serán creados todos los objetos
             var lienzo = SVG('lienzo').size('100%', '271%');
             // Representa las mesas y las sillas del salón con sus atributos
@@ -1877,33 +1946,33 @@
             }
 
 
-
-
-
-
-
-
-
             // Se agregan dinámicamente las mesas y sus sillas
             for (var mesa of mesa1) {
                 var mesaFigura = lienzo.circle(100).attr({
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
+                var conta=0;
                 for (var silla of mesa.sillas) {
-                    var color = silla.ocupada ? mesa.color : silla.color;
+                    if (datosObtenidos[0] > 0 && conta == 0) {} 
+                    else if (datosObtenidos[1] > 0 && conta == 1) {} 
+                    else if (datosObtenidos[2] > 0 && conta == 2) {}
+                    else if (datosObtenidos[3] > 0 && conta == 3) {} 
+                    else if (datosObtenidos[4] > 0 && conta == 4) {} 
+                    else if (datosObtenidos[5] > 0 && conta == 5) {}  
+                    else if (datosObtenidos[6] > 0 && conta == 6) {}
+                    else if (datosObtenidos[7] > 0 && conta == 7) {} 
+                    else if (datosObtenidos[8] > 0 && conta == 8) {}
+                    else if (datosObtenidos[9] > 0 && conta == 9) {}
+                      
+                        else{
+                        var color = silla.ocupada ? mesa.color : silla.color;
 
-                    var sillaFigura = lienzo.circle(20).attr({
-                        fill: color
-                    }).move(silla.posicion.x, silla.posicion.y);
+                        var sillaFigura = lienzo.circle(20).attr({
+                            fill: color
+                        }).move(silla.posicion.x, silla.posicion.y);
 
-                    sillaFigura.numero = silla.numero;
-
-                    // Adjunta el evento click con su callback para responder por cada silla.
-                    // Aquí se pueden enviar datos al servidor si se requiere.
-
-
-
+                        sillaFigura.numero = silla.numero;
                     sillaFigura.click(function() {
                         confirmar = confirm("¿Estás seguro que deseas resevarla?");
                         if (confirmar) {
@@ -1911,39 +1980,45 @@
                                 fill: '#00c853'
                             })
                             console.log('Seleccionaste la silla: ' + this.numero);
+                            sillaReservada.push(this.numero);
+                            contador++;
+                            for (var i = 0; i < sillaReservada.length; i++) {
+                                //console.log(sillaReservada[i]);
+                            }
                         }
                     });
-
-
-
+                }
+                conta ++;
                 }
 
             }
-
-
-
-
-
-
-
-
 
             for (var mesa of mesa2) {
                 var mesaFigura = lienzo.circle(100).attr({
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
+                 var conta=0;
                 for (var silla of mesa.sillas) {
-                    var color = silla.ocupada ? mesa.color : silla.color;
+                    if (datosObtenidos[10] > 0 && conta == 0) {} 
+                    else if (datosObtenidos[11] > 0 && conta == 1) {} 
+                    else if (datosObtenidos[12] > 0 && conta == 2) {}
+                    else if (datosObtenidos[13] > 0 && conta == 3) {} 
+                    else if (datosObtenidos[14] > 0 && conta == 4) {} 
+                    else if (datosObtenidos[15] > 0 && conta == 5) {}  
+                    else if (datosObtenidos[16] > 0 && conta == 6) {}
+                    else if (datosObtenidos[17] > 0 && conta == 7) {} 
+                    else if (datosObtenidos[18] > 0 && conta == 8) {}
+                    else if (datosObtenidos[19] > 0 && conta == 9) {}
+                      
+                        else{
+                        var color = silla.ocupada ? mesa.color : silla.color;
 
-                    var sillaFigura = lienzo.circle(20).attr({
-                        fill: color
-                    }).move(silla.posicion.x, silla.posicion.y);
+                        var sillaFigura = lienzo.circle(20).attr({
+                            fill: color
+                        }).move(silla.posicion.x, silla.posicion.y);
 
-                    sillaFigura.numero = silla.numero;
-
-                    // Adjunta el evento click con su callback para responder por cada silla.
-                    // Aquí se pueden enviar datos al servidor si se requiere.
+                        sillaFigura.numero = silla.numero;
                     sillaFigura.click(function() {
                         confirmar = confirm("¿Estás seguro que deseas resevarla?");
                         if (confirmar) {
@@ -1951,10 +2026,16 @@
                                 fill: '#00c853'
                             })
                             console.log('Seleccionaste la silla: ' + this.numero);
+                            sillaReservada.push(this.numero);
+                            contador++;
+                            for (var i = 0; i < sillaReservada.length; i++) {
+                                //console.log(sillaReservada[i]);
+                            }
                         }
                     });
                 }
-
+                conta ++;
+                }
             }
 
             for (var mesa of mesa3) {
@@ -1962,17 +2043,27 @@
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
+                 var conta=0;
                 for (var silla of mesa.sillas) {
-                    var color = silla.ocupada ? mesa.color : silla.color;
+                    if (datosObtenidos[20] > 0 && conta == 0) {} 
+                    else if (datosObtenidos[21] > 0 && conta == 1) {} 
+                    else if (datosObtenidos[22] > 0 && conta == 2) {}
+                    else if (datosObtenidos[23] > 0 && conta == 3) {} 
+                    else if (datosObtenidos[24] > 0 && conta == 4) {} 
+                    else if (datosObtenidos[25] > 0 && conta == 5) {}  
+                    else if (datosObtenidos[26] > 0 && conta == 6) {}
+                    else if (datosObtenidos[27] > 0 && conta == 7) {} 
+                    else if (datosObtenidos[28] > 0 && conta == 8) {}
+                    else if (datosObtenidos[29] > 0 && conta == 9) {}
+                      
+                        else{
+                        var color = silla.ocupada ? mesa.color : silla.color;
 
-                    var sillaFigura = lienzo.circle(20).attr({
-                        fill: color
-                    }).move(silla.posicion.x, silla.posicion.y);
+                        var sillaFigura = lienzo.circle(20).attr({
+                            fill: color
+                        }).move(silla.posicion.x, silla.posicion.y);
 
-                    sillaFigura.numero = silla.numero;
-
-                    // Adjunta el evento click con su callback para responder por cada silla.
-                    // Aquí se pueden enviar datos al servidor si se requiere.
+                        sillaFigura.numero = silla.numero;
                     sillaFigura.click(function() {
                         confirmar = confirm("¿Estás seguro que deseas resevarla?");
                         if (confirmar) {
@@ -1980,8 +2071,15 @@
                                 fill: '#00c853'
                             })
                             console.log('Seleccionaste la silla: ' + this.numero);
+                            sillaReservada.push(this.numero);
+                            contador++;
+                            for (var i = 0; i < sillaReservada.length; i++) {
+                                //console.log(sillaReservada[i]);
+                            }
                         }
                     });
+                }
+                conta ++;
                 }
             }
 
@@ -1990,17 +2088,27 @@
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
+                 var conta=0;
                 for (var silla of mesa.sillas) {
-                    var color = silla.ocupada ? mesa.color : silla.color;
+                    if (datosObtenidos[30] > 0 && conta == 0) {} 
+                    else if (datosObtenidos[31] > 0 && conta == 1) {} 
+                    else if (datosObtenidos[32] > 0 && conta == 2) {}
+                    else if (datosObtenidos[33] > 0 && conta == 3) {} 
+                    else if (datosObtenidos[34] > 0 && conta == 4) {} 
+                    else if (datosObtenidos[35] > 0 && conta == 5) {}  
+                    else if (datosObtenidos[36] > 0 && conta == 6) {}
+                    else if (datosObtenidos[37] > 0 && conta == 7) {} 
+                    else if (datosObtenidos[38] > 0 && conta == 8) {}
+                    else if (datosObtenidos[39] > 0 && conta == 9) {}
+                      
+                        else{
+                        var color = silla.ocupada ? mesa.color : silla.color;
 
-                    var sillaFigura = lienzo.circle(20).attr({
-                        fill: color
-                    }).move(silla.posicion.x, silla.posicion.y);
+                        var sillaFigura = lienzo.circle(20).attr({
+                            fill: color
+                        }).move(silla.posicion.x, silla.posicion.y);
 
-                    sillaFigura.numero = silla.numero;
-
-                    // Adjunta el evento click con su callback para responder por cada silla.
-                    // Aquí se pueden enviar datos al servidor si se requiere.
+                        sillaFigura.numero = silla.numero;
                     sillaFigura.click(function() {
                         confirmar = confirm("¿Estás seguro que deseas resevarla?");
                         if (confirmar) {
@@ -2008,8 +2116,15 @@
                                 fill: '#00c853'
                             })
                             console.log('Seleccionaste la silla: ' + this.numero);
+                            sillaReservada.push(this.numero);
+                            contador++;
+                            for (var i = 0; i < sillaReservada.length; i++) {
+                                //console.log(sillaReservada[i]);
+                            }
                         }
                     });
+                }
+                conta ++;
                 }
 
             }
@@ -2019,17 +2134,27 @@
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
+               var conta=0;
                 for (var silla of mesa.sillas) {
-                    var color = silla.ocupada ? mesa.color : silla.color;
+                    if (datosObtenidos[40] > 0 && conta == 0) {} 
+                    else if (datosObtenidos[41] > 0 && conta == 1) {} 
+                    else if (datosObtenidos[42] > 0 && conta == 2) {}
+                    else if (datosObtenidos[43] > 0 && conta == 3) {} 
+                    else if (datosObtenidos[44] > 0 && conta == 4) {} 
+                    else if (datosObtenidos[45] > 0 && conta == 5) {}  
+                    else if (datosObtenidos[46] > 0 && conta == 6) {}
+                    else if (datosObtenidos[47] > 0 && conta == 7) {} 
+                    else if (datosObtenidos[48] > 0 && conta == 8) {}
+                    else if (datosObtenidos[49] > 0 && conta == 9) {}
+                      
+                        else{
+                        var color = silla.ocupada ? mesa.color : silla.color;
 
-                    var sillaFigura = lienzo.circle(20).attr({
-                        fill: color
-                    }).move(silla.posicion.x, silla.posicion.y);
+                        var sillaFigura = lienzo.circle(20).attr({
+                            fill: color
+                        }).move(silla.posicion.x, silla.posicion.y);
 
-                    sillaFigura.numero = silla.numero;
-
-                    // Adjunta el evento click con su callback para responder por cada silla.
-                    // Aquí se pueden enviar datos al servidor si se requiere.
+                        sillaFigura.numero = silla.numero;
                     sillaFigura.click(function() {
                         confirmar = confirm("¿Estás seguro que deseas resevarla?");
                         if (confirmar) {
@@ -2037,10 +2162,16 @@
                                 fill: '#00c853'
                             })
                             console.log('Seleccionaste la silla: ' + this.numero);
+                            sillaReservada.push(this.numero);
+                            contador++;
+                            for (var i = 0; i < sillaReservada.length; i++) {
+                                //console.log(sillaReservada[i]);
+                            }
                         }
                     });
                 }
-
+                conta ++;
+                }
             }
 
             for (var mesa of mesa6) {
@@ -2048,17 +2179,27 @@
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
+                 var conta=0;
                 for (var silla of mesa.sillas) {
-                    var color = silla.ocupada ? mesa.color : silla.color;
+                    if (datosObtenidos[50] > 0 && conta == 0) {} 
+                    else if (datosObtenidos[51] > 0 && conta == 1) {} 
+                    else if (datosObtenidos[52] > 0 && conta == 2) {}
+                    else if (datosObtenidos[53] > 0 && conta == 3) {} 
+                    else if (datosObtenidos[54] > 0 && conta == 4) {} 
+                    else if (datosObtenidos[55] > 0 && conta == 5) {}  
+                    else if (datosObtenidos[56] > 0 && conta == 6) {}
+                    else if (datosObtenidos[57] > 0 && conta == 7) {} 
+                    else if (datosObtenidos[58] > 0 && conta == 8) {}
+                    else if (datosObtenidos[59] > 0 && conta == 9) {}
+                      
+                        else{
+                        var color = silla.ocupada ? mesa.color : silla.color;
 
-                    var sillaFigura = lienzo.circle(20).attr({
-                        fill: color
-                    }).move(silla.posicion.x, silla.posicion.y);
+                        var sillaFigura = lienzo.circle(20).attr({
+                            fill: color
+                        }).move(silla.posicion.x, silla.posicion.y);
 
-                    sillaFigura.numero = silla.numero;
-
-                    // Adjunta el evento click con su callback para responder por cada silla.
-                    // Aquí se pueden enviar datos al servidor si se requiere.
+                        sillaFigura.numero = silla.numero;
                     sillaFigura.click(function() {
                         confirmar = confirm("¿Estás seguro que deseas resevarla?");
                         if (confirmar) {
@@ -2066,8 +2207,15 @@
                                 fill: '#00c853'
                             })
                             console.log('Seleccionaste la silla: ' + this.numero);
+                            sillaReservada.push(this.numero);
+                            contador++;
+                            for (var i = 0; i < sillaReservada.length; i++) {
+                                //console.log(sillaReservada[i]);
+                            }
                         }
                     });
+                }
+                conta ++;
                 }
 
             }
@@ -2078,17 +2226,27 @@
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
+                 var conta=0;
                 for (var silla of mesa.sillas) {
-                    var color = silla.ocupada ? mesa.color : silla.color;
+                    if (datosObtenidos[60] > 0 && conta == 0) {} 
+                    else if (datosObtenidos[61] > 0 && conta == 1) {} 
+                    else if (datosObtenidos[62] > 0 && conta == 2) {}
+                    else if (datosObtenidos[63] > 0 && conta == 3) {} 
+                    else if (datosObtenidos[64] > 0 && conta == 4) {} 
+                    else if (datosObtenidos[65] > 0 && conta == 5) {}  
+                    else if (datosObtenidos[66] > 0 && conta == 6) {}
+                    else if (datosObtenidos[67] > 0 && conta == 7) {} 
+                    else if (datosObtenidos[68] > 0 && conta == 8) {}
+                    else if (datosObtenidos[69] > 0 && conta == 9) {}
+                      
+                        else{
+                        var color = silla.ocupada ? mesa.color : silla.color;
 
-                    var sillaFigura = lienzo.circle(20).attr({
-                        fill: color
-                    }).move(silla.posicion.x, silla.posicion.y);
+                        var sillaFigura = lienzo.circle(20).attr({
+                            fill: color
+                        }).move(silla.posicion.x, silla.posicion.y);
 
-                    sillaFigura.numero = silla.numero;
-
-                    // Adjunta el evento click con su callback para responder por cada silla.
-                    // Aquí se pueden enviar datos al servidor si se requiere.
+                        sillaFigura.numero = silla.numero;
                     sillaFigura.click(function() {
                         confirmar = confirm("¿Estás seguro que deseas resevarla?");
                         if (confirmar) {
@@ -2096,8 +2254,15 @@
                                 fill: '#00c853'
                             })
                             console.log('Seleccionaste la silla: ' + this.numero);
+                            sillaReservada.push(this.numero);
+                            contador++;
+                            for (var i = 0; i < sillaReservada.length; i++) {
+                                //console.log(sillaReservada[i]);
+                            }
                         }
                     });
+                }
+                conta ++;
                 }
 
             }
@@ -2107,17 +2272,27 @@
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
+                var conta=0;
                 for (var silla of mesa.sillas) {
-                    var color = silla.ocupada ? mesa.color : silla.color;
+                    if (datosObtenidos[70] > 0 && conta == 0) {} 
+                    else if (datosObtenidos[71] > 0 && conta == 1) {} 
+                    else if (datosObtenidos[72] > 0 && conta == 2) {}
+                    else if (datosObtenidos[73] > 0 && conta == 3) {} 
+                    else if (datosObtenidos[74] > 0 && conta == 4) {} 
+                    else if (datosObtenidos[75] > 0 && conta == 5) {}  
+                    else if (datosObtenidos[76] > 0 && conta == 6) {}
+                    else if (datosObtenidos[77] > 0 && conta == 7) {} 
+                    else if (datosObtenidos[78] > 0 && conta == 8) {}
+                    else if (datosObtenidos[79] > 0 && conta == 9) {}
+                      
+                        else{
+                        var color = silla.ocupada ? mesa.color : silla.color;
 
-                    var sillaFigura = lienzo.circle(20).attr({
-                        fill: color
-                    }).move(silla.posicion.x, silla.posicion.y);
+                        var sillaFigura = lienzo.circle(20).attr({
+                            fill: color
+                        }).move(silla.posicion.x, silla.posicion.y);
 
-                    sillaFigura.numero = silla.numero;
-
-                    // Adjunta el evento click con su callback para responder por cada silla.
-                    // Aquí se pueden enviar datos al servidor si se requiere.
+                        sillaFigura.numero = silla.numero;
                     sillaFigura.click(function() {
                         confirmar = confirm("¿Estás seguro que deseas resevarla?");
                         if (confirmar) {
@@ -2125,8 +2300,15 @@
                                 fill: '#00c853'
                             })
                             console.log('Seleccionaste la silla: ' + this.numero);
+                            sillaReservada.push(this.numero);
+                            contador++;
+                            for (var i = 0; i < sillaReservada.length; i++) {
+                                //console.log(sillaReservada[i]);
+                            }
                         }
                     });
+                }
+                conta ++;
                 }
 
             }
@@ -2137,17 +2319,27 @@
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
+                var conta=0;
                 for (var silla of mesa.sillas) {
-                    var color = silla.ocupada ? mesa.color : silla.color;
+                    if (datosObtenidos[80] > 0 && conta == 0) {} 
+                    else if (datosObtenidos[81] > 0 && conta == 1) {} 
+                    else if (datosObtenidos[82] > 0 && conta == 2) {}
+                    else if (datosObtenidos[83] > 0 && conta == 3) {} 
+                    else if (datosObtenidos[84] > 0 && conta == 4) {} 
+                    else if (datosObtenidos[85] > 0 && conta == 5) {}  
+                    else if (datosObtenidos[86] > 0 && conta == 6) {}
+                    else if (datosObtenidos[87] > 0 && conta == 7) {} 
+                    else if (datosObtenidos[88] > 0 && conta == 8) {}
+                    else if (datosObtenidos[89] > 0 && conta == 9) {}
+                      
+                        else{
+                        var color = silla.ocupada ? mesa.color : silla.color;
 
-                    var sillaFigura = lienzo.circle(20).attr({
-                        fill: color
-                    }).move(silla.posicion.x, silla.posicion.y);
+                        var sillaFigura = lienzo.circle(20).attr({
+                            fill: color
+                        }).move(silla.posicion.x, silla.posicion.y);
 
-                    sillaFigura.numero = silla.numero;
-
-                    // Adjunta el evento click con su callback para responder por cada silla.
-                    // Aquí se pueden enviar datos al servidor si se requiere.
+                        sillaFigura.numero = silla.numero;
                     sillaFigura.click(function() {
                         confirmar = confirm("¿Estás seguro que deseas resevarla?");
                         if (confirmar) {
@@ -2155,8 +2347,15 @@
                                 fill: '#00c853'
                             })
                             console.log('Seleccionaste la silla: ' + this.numero);
+                            sillaReservada.push(this.numero);
+                            contador++;
+                            for (var i = 0; i < sillaReservada.length; i++) {
+                                //console.log(sillaReservada[i]);
+                            }
                         }
                     });
+                }
+                conta ++;
                 }
 
             }
@@ -2166,17 +2365,27 @@
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
+                 var conta=0;
                 for (var silla of mesa.sillas) {
-                    var color = silla.ocupada ? mesa.color : silla.color;
+                    if (datosObtenidos[90] > 0 && conta == 0) {} 
+                    else if (datosObtenidos[91] > 0 && conta == 1) {} 
+                    else if (datosObtenidos[92] > 0 && conta == 2) {}
+                    else if (datosObtenidos[93] > 0 && conta == 3) {} 
+                    else if (datosObtenidos[94] > 0 && conta == 4) {} 
+                    else if (datosObtenidos[95] > 0 && conta == 5) {}  
+                    else if (datosObtenidos[96] > 0 && conta == 6) {}
+                    else if (datosObtenidos[97] > 0 && conta == 7) {} 
+                    else if (datosObtenidos[98] > 0 && conta == 8) {}
+                    else if (datosObtenidos[99] > 0 && conta == 9) {}
+                      
+                        else{
+                        var color = silla.ocupada ? mesa.color : silla.color;
 
-                    var sillaFigura = lienzo.circle(20).attr({
-                        fill: color
-                    }).move(silla.posicion.x, silla.posicion.y);
+                        var sillaFigura = lienzo.circle(20).attr({
+                            fill: color
+                        }).move(silla.posicion.x, silla.posicion.y);
 
-                    sillaFigura.numero = silla.numero;
-
-                    // Adjunta el evento click con su callback para responder por cada silla.
-                    // Aquí se pueden enviar datos al servidor si se requiere.
+                        sillaFigura.numero = silla.numero;
                     sillaFigura.click(function() {
                         confirmar = confirm("¿Estás seguro que deseas resevarla?");
                         if (confirmar) {
@@ -2184,35 +2393,47 @@
                                 fill: '#00c853'
                             })
                             console.log('Seleccionaste la silla: ' + this.numero);
+                            sillaReservada.push(this.numero);
+                            contador++;
+                            for (var i = 0; i < sillaReservada.length; i++) {
+                                //console.log(sillaReservada[i]);
+                            }
                         }
                     });
+                }
+                conta ++;
                 }
 
             }
 
             /////////////////////////////
 
-
-
-
-
-
             for (var mesa of mesa11) {
                 var mesaFigura = lienzo.circle(100).attr({
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
+                 var conta=0;
                 for (var silla of mesa.sillas) {
-                    var color = silla.ocupada ? mesa.color : silla.color;
+                    if (datosObtenidos[100] > 0 && conta == 0) {} 
+                    else if (datosObtenidos[101] > 0 && conta == 1) {} 
+                    else if (datosObtenidos[102] > 0 && conta == 2) {}
+                    else if (datosObtenidos[103] > 0 && conta == 3) {} 
+                    else if (datosObtenidos[104] > 0 && conta == 4) {} 
+                    else if (datosObtenidos[105] > 0 && conta == 5) {}  
+                    else if (datosObtenidos[106] > 0 && conta == 6) {}
+                    else if (datosObtenidos[107] > 0 && conta == 7) {} 
+                    else if (datosObtenidos[108] > 0 && conta == 8) {}
+                    else if (datosObtenidos[109] > 0 && conta == 9) {}
+                      
+                        else{
+                        var color = silla.ocupada ? mesa.color : silla.color;
 
-                    var sillaFigura = lienzo.circle(20).attr({
-                        fill: color
-                    }).move(silla.posicion.x, silla.posicion.y);
+                        var sillaFigura = lienzo.circle(20).attr({
+                            fill: color
+                        }).move(silla.posicion.x, silla.posicion.y);
 
-                    sillaFigura.numero = silla.numero;
-
-                    // Adjunta el evento click con su callback para responder por cada silla.
-                    // Aquí se pueden enviar datos al servidor si se requiere.
+                        sillaFigura.numero = silla.numero;
                     sillaFigura.click(function() {
                         confirmar = confirm("¿Estás seguro que deseas resevarla?");
                         if (confirmar) {
@@ -2220,8 +2441,15 @@
                                 fill: '#00c853'
                             })
                             console.log('Seleccionaste la silla: ' + this.numero);
+                            sillaReservada.push(this.numero);
+                            contador++;
+                            for (var i = 0; i < sillaReservada.length; i++) {
+                                //console.log(sillaReservada[i]);
+                            }
                         }
                     });
+                }
+                conta ++;
                 }
 
             }
@@ -2233,17 +2461,27 @@
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
+                 var conta=0;
                 for (var silla of mesa.sillas) {
-                    var color = silla.ocupada ? mesa.color : silla.color;
+                    if (datosObtenidos[110] > 0 && conta == 0) {} 
+                    else if (datosObtenidos[111] > 0 && conta == 1) {} 
+                    else if (datosObtenidos[112] > 0 && conta == 2) {}
+                    else if (datosObtenidos[113] > 0 && conta == 3) {} 
+                    else if (datosObtenidos[114] > 0 && conta == 4) {} 
+                    else if (datosObtenidos[115] > 0 && conta == 5) {}  
+                    else if (datosObtenidos[116] > 0 && conta == 6) {}
+                    else if (datosObtenidos[117] > 0 && conta == 7) {} 
+                    else if (datosObtenidos[118] > 0 && conta == 8) {}
+                    else if (datosObtenidos[119] > 0 && conta == 9) {}
+                      
+                        else{
+                        var color = silla.ocupada ? mesa.color : silla.color;
 
-                    var sillaFigura = lienzo.circle(20).attr({
-                        fill: color
-                    }).move(silla.posicion.x, silla.posicion.y);
+                        var sillaFigura = lienzo.circle(20).attr({
+                            fill: color
+                        }).move(silla.posicion.x, silla.posicion.y);
 
-                    sillaFigura.numero = silla.numero;
-
-                    // Adjunta el evento click con su callback para responder por cada silla.
-                    // Aquí se pueden enviar datos al servidor si se requiere.
+                        sillaFigura.numero = silla.numero;
                     sillaFigura.click(function() {
                         confirmar = confirm("¿Estás seguro que deseas resevarla?");
                         if (confirmar) {
@@ -2251,8 +2489,15 @@
                                 fill: '#00c853'
                             })
                             console.log('Seleccionaste la silla: ' + this.numero);
+                            sillaReservada.push(this.numero);
+                            contador++;
+                            for (var i = 0; i < sillaReservada.length; i++) {
+                                //console.log(sillaReservada[i]);
+                            }
                         }
                     });
+                }
+                conta ++;
                 }
 
             }
@@ -2262,17 +2507,27 @@
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
+                 var conta=0;
                 for (var silla of mesa.sillas) {
-                    var color = silla.ocupada ? mesa.color : silla.color;
+                    if (datosObtenidos[120] > 0 && conta == 0) {} 
+                    else if (datosObtenidos[121] > 0 && conta == 1) {} 
+                    else if (datosObtenidos[122] > 0 && conta == 2) {}
+                    else if (datosObtenidos[123] > 0 && conta == 3) {} 
+                    else if (datosObtenidos[124] > 0 && conta == 4) {} 
+                    else if (datosObtenidos[125] > 0 && conta == 5) {}  
+                    else if (datosObtenidos[126] > 0 && conta == 6) {}
+                    else if (datosObtenidos[127] > 0 && conta == 7) {} 
+                    else if (datosObtenidos[128] > 0 && conta == 8) {}
+                    else if (datosObtenidos[129] > 0 && conta == 9) {}
+                      
+                        else{
+                        var color = silla.ocupada ? mesa.color : silla.color;
 
-                    var sillaFigura = lienzo.circle(20).attr({
-                        fill: color
-                    }).move(silla.posicion.x, silla.posicion.y);
+                        var sillaFigura = lienzo.circle(20).attr({
+                            fill: color
+                        }).move(silla.posicion.x, silla.posicion.y);
 
-                    sillaFigura.numero = silla.numero;
-
-                    // Adjunta el evento click con su callback para responder por cada silla.
-                    // Aquí se pueden enviar datos al servidor si se requiere.
+                        sillaFigura.numero = silla.numero;
                     sillaFigura.click(function() {
                         confirmar = confirm("¿Estás seguro que deseas resevarla?");
                         if (confirmar) {
@@ -2280,8 +2535,15 @@
                                 fill: '#00c853'
                             })
                             console.log('Seleccionaste la silla: ' + this.numero);
+                            sillaReservada.push(this.numero);
+                            contador++;
+                            for (var i = 0; i < sillaReservada.length; i++) {
+                                //console.log(sillaReservada[i]);
+                            }
                         }
                     });
+                }
+                conta ++;
                 }
             }
 
@@ -2290,17 +2552,27 @@
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
+                 var conta=0;
                 for (var silla of mesa.sillas) {
-                    var color = silla.ocupada ? mesa.color : silla.color;
+                    if (datosObtenidos[130] > 0 && conta == 0) {} 
+                    else if (datosObtenidos[131] > 0 && conta == 1) {} 
+                    else if (datosObtenidos[132] > 0 && conta == 2) {}
+                    else if (datosObtenidos[133] > 0 && conta == 3) {} 
+                    else if (datosObtenidos[134] > 0 && conta == 4) {} 
+                    else if (datosObtenidos[135] > 0 && conta == 5) {}  
+                    else if (datosObtenidos[136] > 0 && conta == 6) {}
+                    else if (datosObtenidos[137] > 0 && conta == 7) {} 
+                    else if (datosObtenidos[138] > 0 && conta == 8) {}
+                    else if (datosObtenidos[139] > 0 && conta == 9) {}
+                      
+                        else{
+                        var color = silla.ocupada ? mesa.color : silla.color;
 
-                    var sillaFigura = lienzo.circle(20).attr({
-                        fill: color
-                    }).move(silla.posicion.x, silla.posicion.y);
+                        var sillaFigura = lienzo.circle(20).attr({
+                            fill: color
+                        }).move(silla.posicion.x, silla.posicion.y);
 
-                    sillaFigura.numero = silla.numero;
-
-                    // Adjunta el evento click con su callback para responder por cada silla.
-                    // Aquí se pueden enviar datos al servidor si se requiere.
+                        sillaFigura.numero = silla.numero;
                     sillaFigura.click(function() {
                         confirmar = confirm("¿Estás seguro que deseas resevarla?");
                         if (confirmar) {
@@ -2308,8 +2580,15 @@
                                 fill: '#00c853'
                             })
                             console.log('Seleccionaste la silla: ' + this.numero);
+                            sillaReservada.push(this.numero);
+                            contador++;
+                            for (var i = 0; i < sillaReservada.length; i++) {
+                                //console.log(sillaReservada[i]);
+                            }
                         }
                     });
+                }
+                conta ++;
                 }
 
             }
@@ -2319,17 +2598,27 @@
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
+                 var conta=0;
                 for (var silla of mesa.sillas) {
-                    var color = silla.ocupada ? mesa.color : silla.color;
+                    if (datosObtenidos[140] > 0 && conta == 0) {} 
+                    else if (datosObtenidos[141] > 0 && conta == 1) {} 
+                    else if (datosObtenidos[142] > 0 && conta == 2) {}
+                    else if (datosObtenidos[143] > 0 && conta == 3) {} 
+                    else if (datosObtenidos[144] > 0 && conta == 4) {} 
+                    else if (datosObtenidos[145] > 0 && conta == 5) {}  
+                    else if (datosObtenidos[146] > 0 && conta == 6) {}
+                    else if (datosObtenidos[147] > 0 && conta == 7) {} 
+                    else if (datosObtenidos[148] > 0 && conta == 8) {}
+                    else if (datosObtenidos[149] > 0 && conta == 9) {}
+                      
+                        else{
+                        var color = silla.ocupada ? mesa.color : silla.color;
 
-                    var sillaFigura = lienzo.circle(20).attr({
-                        fill: color
-                    }).move(silla.posicion.x, silla.posicion.y);
+                        var sillaFigura = lienzo.circle(20).attr({
+                            fill: color
+                        }).move(silla.posicion.x, silla.posicion.y);
 
-                    sillaFigura.numero = silla.numero;
-
-                    // Adjunta el evento click con su callback para responder por cada silla.
-                    // Aquí se pueden enviar datos al servidor si se requiere.
+                        sillaFigura.numero = silla.numero;
                     sillaFigura.click(function() {
                         confirmar = confirm("¿Estás seguro que deseas resevarla?");
                         if (confirmar) {
@@ -2337,8 +2626,15 @@
                                 fill: '#00c853'
                             })
                             console.log('Seleccionaste la silla: ' + this.numero);
+                            sillaReservada.push(this.numero);
+                            contador++;
+                            for (var i = 0; i < sillaReservada.length; i++) {
+                                //console.log(sillaReservada[i]);
+                            }
                         }
                     });
+                }
+                conta ++;
                 }
 
             }
@@ -2348,17 +2644,27 @@
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
+                 var conta=0;
                 for (var silla of mesa.sillas) {
-                    var color = silla.ocupada ? mesa.color : silla.color;
+                    if (datosObtenidos[150] > 0 && conta == 0) {} 
+                    else if (datosObtenidos[151] > 0 && conta == 1) {} 
+                    else if (datosObtenidos[152] > 0 && conta == 2) {}
+                    else if (datosObtenidos[153] > 0 && conta == 3) {} 
+                    else if (datosObtenidos[154] > 0 && conta == 4) {} 
+                    else if (datosObtenidos[155] > 0 && conta == 5) {}  
+                    else if (datosObtenidos[156] > 0 && conta == 6) {}
+                    else if (datosObtenidos[157] > 0 && conta == 7) {} 
+                    else if (datosObtenidos[158] > 0 && conta == 8) {}
+                    else if (datosObtenidos[159] > 0 && conta == 9) {}
+                      
+                        else{
+                        var color = silla.ocupada ? mesa.color : silla.color;
 
-                    var sillaFigura = lienzo.circle(20).attr({
-                        fill: color
-                    }).move(silla.posicion.x, silla.posicion.y);
+                        var sillaFigura = lienzo.circle(20).attr({
+                            fill: color
+                        }).move(silla.posicion.x, silla.posicion.y);
 
-                    sillaFigura.numero = silla.numero;
-
-                    // Adjunta el evento click con su callback para responder por cada silla.
-                    // Aquí se pueden enviar datos al servidor si se requiere.
+                        sillaFigura.numero = silla.numero;
                     sillaFigura.click(function() {
                         confirmar = confirm("¿Estás seguro que deseas resevarla?");
                         if (confirmar) {
@@ -2366,8 +2672,15 @@
                                 fill: '#00c853'
                             })
                             console.log('Seleccionaste la silla: ' + this.numero);
+                            sillaReservada.push(this.numero);
+                            contador++;
+                            for (var i = 0; i < sillaReservada.length; i++) {
+                                //console.log(sillaReservada[i]);
+                            }
                         }
                     });
+                }
+                conta ++;
                 }
 
             }
@@ -2378,17 +2691,27 @@
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
+                 var conta=0;
                 for (var silla of mesa.sillas) {
-                    var color = silla.ocupada ? mesa.color : silla.color;
+                    if (datosObtenidos[160] > 0 && conta == 0) {} 
+                    else if (datosObtenidos[161] > 0 && conta == 1) {} 
+                    else if (datosObtenidos[162] > 0 && conta == 2) {}
+                    else if (datosObtenidos[163] > 0 && conta == 3) {} 
+                    else if (datosObtenidos[164] > 0 && conta == 4) {} 
+                    else if (datosObtenidos[165] > 0 && conta == 5) {}  
+                    else if (datosObtenidos[166] > 0 && conta == 6) {}
+                    else if (datosObtenidos[167] > 0 && conta == 7) {} 
+                    else if (datosObtenidos[168] > 0 && conta == 8) {}
+                    else if (datosObtenidos[169] > 0 && conta == 9) {}
+                      
+                        else{
+                        var color = silla.ocupada ? mesa.color : silla.color;
 
-                    var sillaFigura = lienzo.circle(20).attr({
-                        fill: color
-                    }).move(silla.posicion.x, silla.posicion.y);
+                        var sillaFigura = lienzo.circle(20).attr({
+                            fill: color
+                        }).move(silla.posicion.x, silla.posicion.y);
 
-                    sillaFigura.numero = silla.numero;
-
-                    // Adjunta el evento click con su callback para responder por cada silla.
-                    // Aquí se pueden enviar datos al servidor si se requiere.
+                        sillaFigura.numero = silla.numero;
                     sillaFigura.click(function() {
                         confirmar = confirm("¿Estás seguro que deseas resevarla?");
                         if (confirmar) {
@@ -2396,8 +2719,15 @@
                                 fill: '#00c853'
                             })
                             console.log('Seleccionaste la silla: ' + this.numero);
+                            sillaReservada.push(this.numero);
+                            contador++;
+                            for (var i = 0; i < sillaReservada.length; i++) {
+                                //console.log(sillaReservada[i]);
+                            }
                         }
                     });
+                }
+                conta ++;
                 }
 
             }
@@ -2407,17 +2737,27 @@
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
+                 var conta=0;
                 for (var silla of mesa.sillas) {
-                    var color = silla.ocupada ? mesa.color : silla.color;
+                    if (datosObtenidos[170] > 0 && conta == 0) {} 
+                    else if (datosObtenidos[171] > 0 && conta == 1) {} 
+                    else if (datosObtenidos[172] > 0 && conta == 2) {}
+                    else if (datosObtenidos[173] > 0 && conta == 3) {} 
+                    else if (datosObtenidos[174] > 0 && conta == 4) {} 
+                    else if (datosObtenidos[175] > 0 && conta == 5) {}  
+                    else if (datosObtenidos[176] > 0 && conta == 6) {}
+                    else if (datosObtenidos[177] > 0 && conta == 7) {} 
+                    else if (datosObtenidos[178] > 0 && conta == 8) {}
+                    else if (datosObtenidos[179] > 0 && conta == 9) {}
+                      
+                        else{
+                        var color = silla.ocupada ? mesa.color : silla.color;
 
-                    var sillaFigura = lienzo.circle(20).attr({
-                        fill: color
-                    }).move(silla.posicion.x, silla.posicion.y);
+                        var sillaFigura = lienzo.circle(20).attr({
+                            fill: color
+                        }).move(silla.posicion.x, silla.posicion.y);
 
-                    sillaFigura.numero = silla.numero;
-
-                    // Adjunta el evento click con su callback para responder por cada silla.
-                    // Aquí se pueden enviar datos al servidor si se requiere.
+                        sillaFigura.numero = silla.numero;
                     sillaFigura.click(function() {
                         confirmar = confirm("¿Estás seguro que deseas resevarla?");
                         if (confirmar) {
@@ -2425,8 +2765,15 @@
                                 fill: '#00c853'
                             })
                             console.log('Seleccionaste la silla: ' + this.numero);
+                            sillaReservada.push(this.numero);
+                            contador++;
+                            for (var i = 0; i < sillaReservada.length; i++) {
+                                //console.log(sillaReservada[i]);
+                            }
                         }
                     });
+                }
+                conta ++;
                 }
 
             }
@@ -2436,18 +2783,27 @@
                 var mesaFigura = lienzo.circle(100).attr({
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
-
+                var conta=0;
                 for (var silla of mesa.sillas) {
-                    var color = silla.ocupada ? mesa.color : silla.color;
+                    if (datosObtenidos[180] > 0 && conta == 0) {} 
+                    else if (datosObtenidos[181] > 0 && conta == 1) {} 
+                    else if (datosObtenidos[182] > 0 && conta == 2) {}
+                    else if (datosObtenidos[183] > 0 && conta == 3) {} 
+                    else if (datosObtenidos[184] > 0 && conta == 4) {} 
+                    else if (datosObtenidos[185] > 0 && conta == 5) {}  
+                    else if (datosObtenidos[186] > 0 && conta == 6) {}
+                    else if (datosObtenidos[187] > 0 && conta == 7) {} 
+                    else if (datosObtenidos[188] > 0 && conta == 8) {}
+                    else if (datosObtenidos[189] > 0 && conta == 9) {}
+                      
+                        else{
+                        var color = silla.ocupada ? mesa.color : silla.color;
 
-                    var sillaFigura = lienzo.circle(20).attr({
-                        fill: color
-                    }).move(silla.posicion.x, silla.posicion.y);
+                        var sillaFigura = lienzo.circle(20).attr({
+                            fill: color
+                        }).move(silla.posicion.x, silla.posicion.y);
 
-                    sillaFigura.numero = silla.numero;
-
-                    // Adjunta el evento click con su callback para responder por cada silla.
-                    // Aquí se pueden enviar datos al servidor si se requiere.
+                        sillaFigura.numero = silla.numero;
                     sillaFigura.click(function() {
                         confirmar = confirm("¿Estás seguro que deseas resevarla?");
                         if (confirmar) {
@@ -2455,8 +2811,15 @@
                                 fill: '#00c853'
                             })
                             console.log('Seleccionaste la silla: ' + this.numero);
+                            sillaReservada.push(this.numero);
+                            contador++;
+                            for (var i = 0; i < sillaReservada.length; i++) {
+                                //console.log(sillaReservada[i]);
+                            }
                         }
                     });
+                }
+                conta ++;
                 }
 
             }
@@ -2466,17 +2829,27 @@
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
+                 var conta=0;
                 for (var silla of mesa.sillas) {
-                    var color = silla.ocupada ? mesa.color : silla.color;
+                    if (datosObtenidos[190] > 0 && conta == 0) {} 
+                    else if (datosObtenidos[191] > 0 && conta == 1) {} 
+                    else if (datosObtenidos[192] > 0 && conta == 2) {}
+                    else if (datosObtenidos[193] > 0 && conta == 3) {} 
+                    else if (datosObtenidos[194] > 0 && conta == 4) {} 
+                    else if (datosObtenidos[195] > 0 && conta == 5) {}  
+                    else if (datosObtenidos[196] > 0 && conta == 6) {}
+                    else if (datosObtenidos[197] > 0 && conta == 7) {} 
+                    else if (datosObtenidos[198] > 0 && conta == 8) {}
+                    else if (datosObtenidos[199] > 0 && conta == 9) {}
+                      
+                        else{
+                        var color = silla.ocupada ? mesa.color : silla.color;
 
-                    var sillaFigura = lienzo.circle(20).attr({
-                        fill: color
-                    }).move(silla.posicion.x, silla.posicion.y);
+                        var sillaFigura = lienzo.circle(20).attr({
+                            fill: color
+                        }).move(silla.posicion.x, silla.posicion.y);
 
-                    sillaFigura.numero = silla.numero;
-
-                    // Adjunta el evento click con su callback para responder por cada silla.
-                    // Aquí se pueden enviar datos al servidor si se requiere.
+                        sillaFigura.numero = silla.numero;
                     sillaFigura.click(function() {
                         confirmar = confirm("¿Estás seguro que deseas resevarla?");
                         if (confirmar) {
@@ -2484,14 +2857,55 @@
                                 fill: '#00c853'
                             })
                             console.log('Seleccionaste la silla: ' + this.numero);
+                            sillaReservada.push(this.numero);
+                            contador++;
+                            for (var i = 0; i < sillaReservada.length; i++) {
+                                //console.log(sillaReservada[i]);
+                            }
                         }
                     });
+                }
+                conta ++;
                 }
 
             }
 
+            function comprobar(){
+                if (contador < sillasDisponibles && sillasDisponibles > 0) {
+                    var actualizar =  sillasDisponibles - contador;
+                    console.log(actualizar);
+                location.href = "actualizar.php?disponible=" + actualizar;
+                mostrar();
+                }
+                else{
+                    alert("Ya no puedes reservar mas sillas");
+                }
+            }
+
+            function mostrar() {
+                //console.log("Hoa");
+                //console.log(contador);
+                for (var i = 0; i < sillaReservada.length; i++) {
+                    //console.log(sillaReservada[i]);
+                }
+
+                //console.log(sillasDisponibles);
+                //console.log(contador);
+            
+                var mensaje2 = confirm("¿Deseas guardar tus reservaciones?");
+                if (mensaje2) {
+                    location.href = "reservar.php?sillas=" + sillaReservada;
+                }
+                  
+                
+                
+                }
+               
+            
+
         </script>
         <a href="#"><img src="pictures/Fleca.png" title="Ir arriba" style="position: fixed; bottom: 10px; right: 2%;" height="50" /></a>
+        <a href="#"><img src="pictures/guardar2.png" title="Ir arriba" style="position: fixed; bottom: 10px; right: 8%;" height="50" onclick="mostrar()" /></a>
 
     </body>
 

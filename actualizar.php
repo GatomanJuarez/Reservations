@@ -1,10 +1,7 @@
 <?php
 session_start();
-$SILLAS= $_GET["sillas"];
-$SEPARADAS = explode (',', $SILLAS);
-foreach ($SEPARADAS as $imprimir){
-   echo $imprimir ."<br>"; 
-}
+$SILLASD= $_GET["disponible"];
+
 
 
 $servidor = "localhost";
@@ -18,18 +15,15 @@ if ($conexion->connect_error) {
 } else {
     $idUsuario = $_SESSION["ID"];
     echo $idUsuario ."<br>";
-    foreach ($SEPARADAS as $VALOR){
-        $sql_insert = "UPDATE  sillas SET  alumno_id = \"".$idUsuario."\" WHERE id = \"".$VALOR."\"" ;
+    echo $SILLASD ."<br>";
+        $sql_insert = "UPDATE  alumnos SET  sillas = \"".$SILLASD."\" WHERE id = \"".$idUsuario."\"" ;
         try {
            $sillas_insert = $conexion->query($sql_insert);
            echo("Tú Reservación se ha hecho correctamente :)");  
-           header('Location: obtener.php'); 
+           //header('Location: cambiar.php'); 
         } catch (Exception $e) {
            echo("Error al hacer la reservación: " . $e);
-        header('Location: error2.php');
+           //header('Location: error2.php');
         }
     }
     $conexion->close();
-}
-
-   
