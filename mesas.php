@@ -1,6 +1,6 @@
 <?php
-    session_start();
-    $servidor = "localhost";
+session_start();
+$servidor = "localhost";
 $usuario = "root";
 $contra = "";
 $bd = "reservations";
@@ -22,8 +22,8 @@ $configuracion = file ('txt/reservados.txt');
     <head>
         <meta charset="utf-8">
         <title>Reservaciones Aqui</title>
-        <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+        <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
     </head>
 
     <body background="pictures/Pared.jpg" style="background-repeat: no-repeat">
@@ -36,34 +36,34 @@ $configuracion = file ('txt/reservados.txt');
             );
         ?>
         </header>
-        
+
         <div id="lienzo"></div>
         <script src="js/svg.min.js"></script>
         <script>
-         function datosObtenerNuevoaa() {
-    var silla = 0;
-    var archivo = new XMLHttpRequest();
-    archivo.open("GET", "txt/reservados.txt", false);
-    archivo.onreadystatechange = function () {
-        if (archivo.readyState === 4) {
-            if (archivo.status === 200 || archivo.status == 0) {
-                var Texto = archivo.responseText;
-                silla = Texto;
+            function sillasObtener() {
+                var silla = 0;
+                var archivo = new XMLHttpRequest();
+                archivo.open("GET", "txt/reservados.txt", false);
+                archivo.onreadystatechange = function() {
+                    if (archivo.readyState === 4) {
+                        if (archivo.status === 200 || archivo.status == 0) {
+                            var Texto = archivo.responseText;
+                            silla = Texto;
+                        }
+                    }
+                }
+                archivo.send(null);
+                return silla;
             }
-        }
-    }
-    archivo.send(null);
-    return silla;
-}
-        var datosObtenidos2 = datosObtenerNuevoaa();
-        var datosObtenidos = datosObtenidos2.split('\n');
-        console.log(datosObtenidos);
+            var datosObtenidos2 = sillasObtener();
+            var datosObtenidos = datosObtenidos2.split('\n');
+            console.log(datosObtenidos);
             var sillaReservada = [],
                 contador = 0,
                 sillasDisponibles;
 
-               
-           
+
+
             // Lienzo SVG donde serán creados todos los objetos
             var lienzo = SVG('lienzo').size('100%', '271%');
             // Representa las mesas y las sillas del salón con sus atributos
@@ -1923,20 +1923,9 @@ $configuracion = file ('txt/reservados.txt');
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
-                var conta=0;
+                var conta = 0;
                 for (var silla of mesa.sillas) {
-                    if (datosObtenidos[0] > 0 && conta == 0) {} 
-                    else if (datosObtenidos[1] > 0 && conta == 1) {} 
-                    else if (datosObtenidos[2] > 0 && conta == 2) {}
-                    else if (datosObtenidos[3] > 0 && conta == 3) {} 
-                    else if (datosObtenidos[4] > 0 && conta == 4) {} 
-                    else if (datosObtenidos[5] > 0 && conta == 5) {}  
-                    else if (datosObtenidos[6] > 0 && conta == 6) {}
-                    else if (datosObtenidos[7] > 0 && conta == 7) {} 
-                    else if (datosObtenidos[8] > 0 && conta == 8) {}
-                    else if (datosObtenidos[9] > 0 && conta == 9) {}
-                      
-                        else{
+                    if (datosObtenidos[0] > 0 && conta == 0) {} else if (datosObtenidos[1] > 0 && conta == 1) {} else if (datosObtenidos[2] > 0 && conta == 2) {} else if (datosObtenidos[3] > 0 && conta == 3) {} else if (datosObtenidos[4] > 0 && conta == 4) {} else if (datosObtenidos[5] > 0 && conta == 5) {} else if (datosObtenidos[6] > 0 && conta == 6) {} else if (datosObtenidos[7] > 0 && conta == 7) {} else if (datosObtenidos[8] > 0 && conta == 8) {} else if (datosObtenidos[9] > 0 && conta == 9) {} else {
                         var color = silla.ocupada ? mesa.color : silla.color;
 
                         var sillaFigura = lienzo.circle(20).attr({
@@ -1944,22 +1933,22 @@ $configuracion = file ('txt/reservados.txt');
                         }).move(silla.posicion.x, silla.posicion.y);
 
                         sillaFigura.numero = silla.numero;
-                    sillaFigura.click(function() {
-                        confirmar = confirm("¿Estás seguro que deseas resevarla?");
-                        if (confirmar) {
-                            this.attr({
-                                fill: '#00c853'
-                            })
-                            console.log('Seleccionaste la silla: ' + this.numero);
-                            sillaReservada.push(this.numero);
-                            contador++;
-                            for (var i = 0; i < sillaReservada.length; i++) {
-                                //console.log(sillaReservada[i]);
+                        sillaFigura.click(function() {
+                            confirmar = confirm("¿Estás seguro que deseas resevarla?");
+                            if (confirmar) {
+                                this.attr({
+                                    fill: '#00c853'
+                                })
+                                console.log('Seleccionaste la silla: ' + this.numero);
+                                sillaReservada.push(this.numero);
+                                contador++;
+                                for (var i = 0; i < sillaReservada.length; i++) {
+                                    //console.log(sillaReservada[i]);
+                                }
                             }
-                        }
-                    });
-                }
-                conta ++;
+                        });
+                    }
+                    conta++;
                 }
 
             }
@@ -1969,20 +1958,9 @@ $configuracion = file ('txt/reservados.txt');
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
-                 var conta=0;
+                var conta = 0;
                 for (var silla of mesa.sillas) {
-                    if (datosObtenidos[10] > 0 && conta == 0) {} 
-                    else if (datosObtenidos[11] > 0 && conta == 1) {} 
-                    else if (datosObtenidos[12] > 0 && conta == 2) {}
-                    else if (datosObtenidos[13] > 0 && conta == 3) {} 
-                    else if (datosObtenidos[14] > 0 && conta == 4) {} 
-                    else if (datosObtenidos[15] > 0 && conta == 5) {}  
-                    else if (datosObtenidos[16] > 0 && conta == 6) {}
-                    else if (datosObtenidos[17] > 0 && conta == 7) {} 
-                    else if (datosObtenidos[18] > 0 && conta == 8) {}
-                    else if (datosObtenidos[19] > 0 && conta == 9) {}
-                      
-                        else{
+                    if (datosObtenidos[10] > 0 && conta == 0) {} else if (datosObtenidos[11] > 0 && conta == 1) {} else if (datosObtenidos[12] > 0 && conta == 2) {} else if (datosObtenidos[13] > 0 && conta == 3) {} else if (datosObtenidos[14] > 0 && conta == 4) {} else if (datosObtenidos[15] > 0 && conta == 5) {} else if (datosObtenidos[16] > 0 && conta == 6) {} else if (datosObtenidos[17] > 0 && conta == 7) {} else if (datosObtenidos[18] > 0 && conta == 8) {} else if (datosObtenidos[19] > 0 && conta == 9) {} else {
                         var color = silla.ocupada ? mesa.color : silla.color;
 
                         var sillaFigura = lienzo.circle(20).attr({
@@ -1990,22 +1968,22 @@ $configuracion = file ('txt/reservados.txt');
                         }).move(silla.posicion.x, silla.posicion.y);
 
                         sillaFigura.numero = silla.numero;
-                    sillaFigura.click(function() {
-                        confirmar = confirm("¿Estás seguro que deseas resevarla?");
-                        if (confirmar) {
-                            this.attr({
-                                fill: '#00c853'
-                            })
-                            console.log('Seleccionaste la silla: ' + this.numero);
-                            sillaReservada.push(this.numero);
-                            contador++;
-                            for (var i = 0; i < sillaReservada.length; i++) {
-                                //console.log(sillaReservada[i]);
+                        sillaFigura.click(function() {
+                            confirmar = confirm("¿Estás seguro que deseas resevarla?");
+                            if (confirmar) {
+                                this.attr({
+                                    fill: '#00c853'
+                                })
+                                console.log('Seleccionaste la silla: ' + this.numero);
+                                sillaReservada.push(this.numero);
+                                contador++;
+                                for (var i = 0; i < sillaReservada.length; i++) {
+                                    //console.log(sillaReservada[i]);
+                                }
                             }
-                        }
-                    });
-                }
-                conta ++;
+                        });
+                    }
+                    conta++;
                 }
             }
 
@@ -2014,20 +1992,9 @@ $configuracion = file ('txt/reservados.txt');
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
-                 var conta=0;
+                var conta = 0;
                 for (var silla of mesa.sillas) {
-                    if (datosObtenidos[20] > 0 && conta == 0) {} 
-                    else if (datosObtenidos[21] > 0 && conta == 1) {} 
-                    else if (datosObtenidos[22] > 0 && conta == 2) {}
-                    else if (datosObtenidos[23] > 0 && conta == 3) {} 
-                    else if (datosObtenidos[24] > 0 && conta == 4) {} 
-                    else if (datosObtenidos[25] > 0 && conta == 5) {}  
-                    else if (datosObtenidos[26] > 0 && conta == 6) {}
-                    else if (datosObtenidos[27] > 0 && conta == 7) {} 
-                    else if (datosObtenidos[28] > 0 && conta == 8) {}
-                    else if (datosObtenidos[29] > 0 && conta == 9) {}
-                      
-                        else{
+                    if (datosObtenidos[20] > 0 && conta == 0) {} else if (datosObtenidos[21] > 0 && conta == 1) {} else if (datosObtenidos[22] > 0 && conta == 2) {} else if (datosObtenidos[23] > 0 && conta == 3) {} else if (datosObtenidos[24] > 0 && conta == 4) {} else if (datosObtenidos[25] > 0 && conta == 5) {} else if (datosObtenidos[26] > 0 && conta == 6) {} else if (datosObtenidos[27] > 0 && conta == 7) {} else if (datosObtenidos[28] > 0 && conta == 8) {} else if (datosObtenidos[29] > 0 && conta == 9) {} else {
                         var color = silla.ocupada ? mesa.color : silla.color;
 
                         var sillaFigura = lienzo.circle(20).attr({
@@ -2035,22 +2002,22 @@ $configuracion = file ('txt/reservados.txt');
                         }).move(silla.posicion.x, silla.posicion.y);
 
                         sillaFigura.numero = silla.numero;
-                    sillaFigura.click(function() {
-                        confirmar = confirm("¿Estás seguro que deseas resevarla?");
-                        if (confirmar) {
-                            this.attr({
-                                fill: '#00c853'
-                            })
-                            console.log('Seleccionaste la silla: ' + this.numero);
-                            sillaReservada.push(this.numero);
-                            contador++;
-                            for (var i = 0; i < sillaReservada.length; i++) {
-                                //console.log(sillaReservada[i]);
+                        sillaFigura.click(function() {
+                            confirmar = confirm("¿Estás seguro que deseas resevarla?");
+                            if (confirmar) {
+                                this.attr({
+                                    fill: '#00c853'
+                                })
+                                console.log('Seleccionaste la silla: ' + this.numero);
+                                sillaReservada.push(this.numero);
+                                contador++;
+                                for (var i = 0; i < sillaReservada.length; i++) {
+                                    //console.log(sillaReservada[i]);
+                                }
                             }
-                        }
-                    });
-                }
-                conta ++;
+                        });
+                    }
+                    conta++;
                 }
             }
 
@@ -2059,20 +2026,9 @@ $configuracion = file ('txt/reservados.txt');
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
-                 var conta=0;
+                var conta = 0;
                 for (var silla of mesa.sillas) {
-                    if (datosObtenidos[30] > 0 && conta == 0) {} 
-                    else if (datosObtenidos[31] > 0 && conta == 1) {} 
-                    else if (datosObtenidos[32] > 0 && conta == 2) {}
-                    else if (datosObtenidos[33] > 0 && conta == 3) {} 
-                    else if (datosObtenidos[34] > 0 && conta == 4) {} 
-                    else if (datosObtenidos[35] > 0 && conta == 5) {}  
-                    else if (datosObtenidos[36] > 0 && conta == 6) {}
-                    else if (datosObtenidos[37] > 0 && conta == 7) {} 
-                    else if (datosObtenidos[38] > 0 && conta == 8) {}
-                    else if (datosObtenidos[39] > 0 && conta == 9) {}
-                      
-                        else{
+                    if (datosObtenidos[30] > 0 && conta == 0) {} else if (datosObtenidos[31] > 0 && conta == 1) {} else if (datosObtenidos[32] > 0 && conta == 2) {} else if (datosObtenidos[33] > 0 && conta == 3) {} else if (datosObtenidos[34] > 0 && conta == 4) {} else if (datosObtenidos[35] > 0 && conta == 5) {} else if (datosObtenidos[36] > 0 && conta == 6) {} else if (datosObtenidos[37] > 0 && conta == 7) {} else if (datosObtenidos[38] > 0 && conta == 8) {} else if (datosObtenidos[39] > 0 && conta == 9) {} else {
                         var color = silla.ocupada ? mesa.color : silla.color;
 
                         var sillaFigura = lienzo.circle(20).attr({
@@ -2080,22 +2036,22 @@ $configuracion = file ('txt/reservados.txt');
                         }).move(silla.posicion.x, silla.posicion.y);
 
                         sillaFigura.numero = silla.numero;
-                    sillaFigura.click(function() {
-                        confirmar = confirm("¿Estás seguro que deseas resevarla?");
-                        if (confirmar) {
-                            this.attr({
-                                fill: '#00c853'
-                            })
-                            console.log('Seleccionaste la silla: ' + this.numero);
-                            sillaReservada.push(this.numero);
-                            contador++;
-                            for (var i = 0; i < sillaReservada.length; i++) {
-                                //console.log(sillaReservada[i]);
+                        sillaFigura.click(function() {
+                            confirmar = confirm("¿Estás seguro que deseas resevarla?");
+                            if (confirmar) {
+                                this.attr({
+                                    fill: '#00c853'
+                                })
+                                console.log('Seleccionaste la silla: ' + this.numero);
+                                sillaReservada.push(this.numero);
+                                contador++;
+                                for (var i = 0; i < sillaReservada.length; i++) {
+                                    //console.log(sillaReservada[i]);
+                                }
                             }
-                        }
-                    });
-                }
-                conta ++;
+                        });
+                    }
+                    conta++;
                 }
 
             }
@@ -2105,20 +2061,9 @@ $configuracion = file ('txt/reservados.txt');
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
-               var conta=0;
+                var conta = 0;
                 for (var silla of mesa.sillas) {
-                    if (datosObtenidos[40] > 0 && conta == 0) {} 
-                    else if (datosObtenidos[41] > 0 && conta == 1) {} 
-                    else if (datosObtenidos[42] > 0 && conta == 2) {}
-                    else if (datosObtenidos[43] > 0 && conta == 3) {} 
-                    else if (datosObtenidos[44] > 0 && conta == 4) {} 
-                    else if (datosObtenidos[45] > 0 && conta == 5) {}  
-                    else if (datosObtenidos[46] > 0 && conta == 6) {}
-                    else if (datosObtenidos[47] > 0 && conta == 7) {} 
-                    else if (datosObtenidos[48] > 0 && conta == 8) {}
-                    else if (datosObtenidos[49] > 0 && conta == 9) {}
-                      
-                        else{
+                    if (datosObtenidos[40] > 0 && conta == 0) {} else if (datosObtenidos[41] > 0 && conta == 1) {} else if (datosObtenidos[42] > 0 && conta == 2) {} else if (datosObtenidos[43] > 0 && conta == 3) {} else if (datosObtenidos[44] > 0 && conta == 4) {} else if (datosObtenidos[45] > 0 && conta == 5) {} else if (datosObtenidos[46] > 0 && conta == 6) {} else if (datosObtenidos[47] > 0 && conta == 7) {} else if (datosObtenidos[48] > 0 && conta == 8) {} else if (datosObtenidos[49] > 0 && conta == 9) {} else {
                         var color = silla.ocupada ? mesa.color : silla.color;
 
                         var sillaFigura = lienzo.circle(20).attr({
@@ -2126,22 +2071,22 @@ $configuracion = file ('txt/reservados.txt');
                         }).move(silla.posicion.x, silla.posicion.y);
 
                         sillaFigura.numero = silla.numero;
-                    sillaFigura.click(function() {
-                        confirmar = confirm("¿Estás seguro que deseas resevarla?");
-                        if (confirmar) {
-                            this.attr({
-                                fill: '#00c853'
-                            })
-                            console.log('Seleccionaste la silla: ' + this.numero);
-                            sillaReservada.push(this.numero);
-                            contador++;
-                            for (var i = 0; i < sillaReservada.length; i++) {
-                                //console.log(sillaReservada[i]);
+                        sillaFigura.click(function() {
+                            confirmar = confirm("¿Estás seguro que deseas resevarla?");
+                            if (confirmar) {
+                                this.attr({
+                                    fill: '#00c853'
+                                })
+                                console.log('Seleccionaste la silla: ' + this.numero);
+                                sillaReservada.push(this.numero);
+                                contador++;
+                                for (var i = 0; i < sillaReservada.length; i++) {
+                                    //console.log(sillaReservada[i]);
+                                }
                             }
-                        }
-                    });
-                }
-                conta ++;
+                        });
+                    }
+                    conta++;
                 }
             }
 
@@ -2150,20 +2095,9 @@ $configuracion = file ('txt/reservados.txt');
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
-                 var conta=0;
+                var conta = 0;
                 for (var silla of mesa.sillas) {
-                    if (datosObtenidos[50] > 0 && conta == 0) {} 
-                    else if (datosObtenidos[51] > 0 && conta == 1) {} 
-                    else if (datosObtenidos[52] > 0 && conta == 2) {}
-                    else if (datosObtenidos[53] > 0 && conta == 3) {} 
-                    else if (datosObtenidos[54] > 0 && conta == 4) {} 
-                    else if (datosObtenidos[55] > 0 && conta == 5) {}  
-                    else if (datosObtenidos[56] > 0 && conta == 6) {}
-                    else if (datosObtenidos[57] > 0 && conta == 7) {} 
-                    else if (datosObtenidos[58] > 0 && conta == 8) {}
-                    else if (datosObtenidos[59] > 0 && conta == 9) {}
-                      
-                        else{
+                    if (datosObtenidos[50] > 0 && conta == 0) {} else if (datosObtenidos[51] > 0 && conta == 1) {} else if (datosObtenidos[52] > 0 && conta == 2) {} else if (datosObtenidos[53] > 0 && conta == 3) {} else if (datosObtenidos[54] > 0 && conta == 4) {} else if (datosObtenidos[55] > 0 && conta == 5) {} else if (datosObtenidos[56] > 0 && conta == 6) {} else if (datosObtenidos[57] > 0 && conta == 7) {} else if (datosObtenidos[58] > 0 && conta == 8) {} else if (datosObtenidos[59] > 0 && conta == 9) {} else {
                         var color = silla.ocupada ? mesa.color : silla.color;
 
                         var sillaFigura = lienzo.circle(20).attr({
@@ -2171,22 +2105,22 @@ $configuracion = file ('txt/reservados.txt');
                         }).move(silla.posicion.x, silla.posicion.y);
 
                         sillaFigura.numero = silla.numero;
-                    sillaFigura.click(function() {
-                        confirmar = confirm("¿Estás seguro que deseas resevarla?");
-                        if (confirmar) {
-                            this.attr({
-                                fill: '#00c853'
-                            })
-                            console.log('Seleccionaste la silla: ' + this.numero);
-                            sillaReservada.push(this.numero);
-                            contador++;
-                            for (var i = 0; i < sillaReservada.length; i++) {
-                                //console.log(sillaReservada[i]);
+                        sillaFigura.click(function() {
+                            confirmar = confirm("¿Estás seguro que deseas resevarla?");
+                            if (confirmar) {
+                                this.attr({
+                                    fill: '#00c853'
+                                })
+                                console.log('Seleccionaste la silla: ' + this.numero);
+                                sillaReservada.push(this.numero);
+                                contador++;
+                                for (var i = 0; i < sillaReservada.length; i++) {
+                                    //console.log(sillaReservada[i]);
+                                }
                             }
-                        }
-                    });
-                }
-                conta ++;
+                        });
+                    }
+                    conta++;
                 }
 
             }
@@ -2197,20 +2131,9 @@ $configuracion = file ('txt/reservados.txt');
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
-                 var conta=0;
+                var conta = 0;
                 for (var silla of mesa.sillas) {
-                    if (datosObtenidos[60] > 0 && conta == 0) {} 
-                    else if (datosObtenidos[61] > 0 && conta == 1) {} 
-                    else if (datosObtenidos[62] > 0 && conta == 2) {}
-                    else if (datosObtenidos[63] > 0 && conta == 3) {} 
-                    else if (datosObtenidos[64] > 0 && conta == 4) {} 
-                    else if (datosObtenidos[65] > 0 && conta == 5) {}  
-                    else if (datosObtenidos[66] > 0 && conta == 6) {}
-                    else if (datosObtenidos[67] > 0 && conta == 7) {} 
-                    else if (datosObtenidos[68] > 0 && conta == 8) {}
-                    else if (datosObtenidos[69] > 0 && conta == 9) {}
-                      
-                        else{
+                    if (datosObtenidos[60] > 0 && conta == 0) {} else if (datosObtenidos[61] > 0 && conta == 1) {} else if (datosObtenidos[62] > 0 && conta == 2) {} else if (datosObtenidos[63] > 0 && conta == 3) {} else if (datosObtenidos[64] > 0 && conta == 4) {} else if (datosObtenidos[65] > 0 && conta == 5) {} else if (datosObtenidos[66] > 0 && conta == 6) {} else if (datosObtenidos[67] > 0 && conta == 7) {} else if (datosObtenidos[68] > 0 && conta == 8) {} else if (datosObtenidos[69] > 0 && conta == 9) {} else {
                         var color = silla.ocupada ? mesa.color : silla.color;
 
                         var sillaFigura = lienzo.circle(20).attr({
@@ -2218,22 +2141,22 @@ $configuracion = file ('txt/reservados.txt');
                         }).move(silla.posicion.x, silla.posicion.y);
 
                         sillaFigura.numero = silla.numero;
-                    sillaFigura.click(function() {
-                        confirmar = confirm("¿Estás seguro que deseas resevarla?");
-                        if (confirmar) {
-                            this.attr({
-                                fill: '#00c853'
-                            })
-                            console.log('Seleccionaste la silla: ' + this.numero);
-                            sillaReservada.push(this.numero);
-                            contador++;
-                            for (var i = 0; i < sillaReservada.length; i++) {
-                                //console.log(sillaReservada[i]);
+                        sillaFigura.click(function() {
+                            confirmar = confirm("¿Estás seguro que deseas resevarla?");
+                            if (confirmar) {
+                                this.attr({
+                                    fill: '#00c853'
+                                })
+                                console.log('Seleccionaste la silla: ' + this.numero);
+                                sillaReservada.push(this.numero);
+                                contador++;
+                                for (var i = 0; i < sillaReservada.length; i++) {
+                                    //console.log(sillaReservada[i]);
+                                }
                             }
-                        }
-                    });
-                }
-                conta ++;
+                        });
+                    }
+                    conta++;
                 }
 
             }
@@ -2243,20 +2166,9 @@ $configuracion = file ('txt/reservados.txt');
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
-                var conta=0;
+                var conta = 0;
                 for (var silla of mesa.sillas) {
-                    if (datosObtenidos[70] > 0 && conta == 0) {} 
-                    else if (datosObtenidos[71] > 0 && conta == 1) {} 
-                    else if (datosObtenidos[72] > 0 && conta == 2) {}
-                    else if (datosObtenidos[73] > 0 && conta == 3) {} 
-                    else if (datosObtenidos[74] > 0 && conta == 4) {} 
-                    else if (datosObtenidos[75] > 0 && conta == 5) {}  
-                    else if (datosObtenidos[76] > 0 && conta == 6) {}
-                    else if (datosObtenidos[77] > 0 && conta == 7) {} 
-                    else if (datosObtenidos[78] > 0 && conta == 8) {}
-                    else if (datosObtenidos[79] > 0 && conta == 9) {}
-                      
-                        else{
+                    if (datosObtenidos[70] > 0 && conta == 0) {} else if (datosObtenidos[71] > 0 && conta == 1) {} else if (datosObtenidos[72] > 0 && conta == 2) {} else if (datosObtenidos[73] > 0 && conta == 3) {} else if (datosObtenidos[74] > 0 && conta == 4) {} else if (datosObtenidos[75] > 0 && conta == 5) {} else if (datosObtenidos[76] > 0 && conta == 6) {} else if (datosObtenidos[77] > 0 && conta == 7) {} else if (datosObtenidos[78] > 0 && conta == 8) {} else if (datosObtenidos[79] > 0 && conta == 9) {} else {
                         var color = silla.ocupada ? mesa.color : silla.color;
 
                         var sillaFigura = lienzo.circle(20).attr({
@@ -2264,22 +2176,22 @@ $configuracion = file ('txt/reservados.txt');
                         }).move(silla.posicion.x, silla.posicion.y);
 
                         sillaFigura.numero = silla.numero;
-                    sillaFigura.click(function() {
-                        confirmar = confirm("¿Estás seguro que deseas resevarla?");
-                        if (confirmar) {
-                            this.attr({
-                                fill: '#00c853'
-                            })
-                            console.log('Seleccionaste la silla: ' + this.numero);
-                            sillaReservada.push(this.numero);
-                            contador++;
-                            for (var i = 0; i < sillaReservada.length; i++) {
-                                //console.log(sillaReservada[i]);
+                        sillaFigura.click(function() {
+                            confirmar = confirm("¿Estás seguro que deseas resevarla?");
+                            if (confirmar) {
+                                this.attr({
+                                    fill: '#00c853'
+                                })
+                                console.log('Seleccionaste la silla: ' + this.numero);
+                                sillaReservada.push(this.numero);
+                                contador++;
+                                for (var i = 0; i < sillaReservada.length; i++) {
+                                    //console.log(sillaReservada[i]);
+                                }
                             }
-                        }
-                    });
-                }
-                conta ++;
+                        });
+                    }
+                    conta++;
                 }
 
             }
@@ -2290,20 +2202,9 @@ $configuracion = file ('txt/reservados.txt');
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
-                var conta=0;
+                var conta = 0;
                 for (var silla of mesa.sillas) {
-                    if (datosObtenidos[80] > 0 && conta == 0) {} 
-                    else if (datosObtenidos[81] > 0 && conta == 1) {} 
-                    else if (datosObtenidos[82] > 0 && conta == 2) {}
-                    else if (datosObtenidos[83] > 0 && conta == 3) {} 
-                    else if (datosObtenidos[84] > 0 && conta == 4) {} 
-                    else if (datosObtenidos[85] > 0 && conta == 5) {}  
-                    else if (datosObtenidos[86] > 0 && conta == 6) {}
-                    else if (datosObtenidos[87] > 0 && conta == 7) {} 
-                    else if (datosObtenidos[88] > 0 && conta == 8) {}
-                    else if (datosObtenidos[89] > 0 && conta == 9) {}
-                      
-                        else{
+                    if (datosObtenidos[80] > 0 && conta == 0) {} else if (datosObtenidos[81] > 0 && conta == 1) {} else if (datosObtenidos[82] > 0 && conta == 2) {} else if (datosObtenidos[83] > 0 && conta == 3) {} else if (datosObtenidos[84] > 0 && conta == 4) {} else if (datosObtenidos[85] > 0 && conta == 5) {} else if (datosObtenidos[86] > 0 && conta == 6) {} else if (datosObtenidos[87] > 0 && conta == 7) {} else if (datosObtenidos[88] > 0 && conta == 8) {} else if (datosObtenidos[89] > 0 && conta == 9) {} else {
                         var color = silla.ocupada ? mesa.color : silla.color;
 
                         var sillaFigura = lienzo.circle(20).attr({
@@ -2311,22 +2212,22 @@ $configuracion = file ('txt/reservados.txt');
                         }).move(silla.posicion.x, silla.posicion.y);
 
                         sillaFigura.numero = silla.numero;
-                    sillaFigura.click(function() {
-                        confirmar = confirm("¿Estás seguro que deseas resevarla?");
-                        if (confirmar) {
-                            this.attr({
-                                fill: '#00c853'
-                            })
-                            console.log('Seleccionaste la silla: ' + this.numero);
-                            sillaReservada.push(this.numero);
-                            contador++;
-                            for (var i = 0; i < sillaReservada.length; i++) {
-                                //console.log(sillaReservada[i]);
+                        sillaFigura.click(function() {
+                            confirmar = confirm("¿Estás seguro que deseas resevarla?");
+                            if (confirmar) {
+                                this.attr({
+                                    fill: '#00c853'
+                                })
+                                console.log('Seleccionaste la silla: ' + this.numero);
+                                sillaReservada.push(this.numero);
+                                contador++;
+                                for (var i = 0; i < sillaReservada.length; i++) {
+                                    //console.log(sillaReservada[i]);
+                                }
                             }
-                        }
-                    });
-                }
-                conta ++;
+                        });
+                    }
+                    conta++;
                 }
 
             }
@@ -2336,20 +2237,9 @@ $configuracion = file ('txt/reservados.txt');
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
-                 var conta=0;
+                var conta = 0;
                 for (var silla of mesa.sillas) {
-                    if (datosObtenidos[90] > 0 && conta == 0) {} 
-                    else if (datosObtenidos[91] > 0 && conta == 1) {} 
-                    else if (datosObtenidos[92] > 0 && conta == 2) {}
-                    else if (datosObtenidos[93] > 0 && conta == 3) {} 
-                    else if (datosObtenidos[94] > 0 && conta == 4) {} 
-                    else if (datosObtenidos[95] > 0 && conta == 5) {}  
-                    else if (datosObtenidos[96] > 0 && conta == 6) {}
-                    else if (datosObtenidos[97] > 0 && conta == 7) {} 
-                    else if (datosObtenidos[98] > 0 && conta == 8) {}
-                    else if (datosObtenidos[99] > 0 && conta == 9) {}
-                      
-                        else{
+                    if (datosObtenidos[90] > 0 && conta == 0) {} else if (datosObtenidos[91] > 0 && conta == 1) {} else if (datosObtenidos[92] > 0 && conta == 2) {} else if (datosObtenidos[93] > 0 && conta == 3) {} else if (datosObtenidos[94] > 0 && conta == 4) {} else if (datosObtenidos[95] > 0 && conta == 5) {} else if (datosObtenidos[96] > 0 && conta == 6) {} else if (datosObtenidos[97] > 0 && conta == 7) {} else if (datosObtenidos[98] > 0 && conta == 8) {} else if (datosObtenidos[99] > 0 && conta == 9) {} else {
                         var color = silla.ocupada ? mesa.color : silla.color;
 
                         var sillaFigura = lienzo.circle(20).attr({
@@ -2357,22 +2247,22 @@ $configuracion = file ('txt/reservados.txt');
                         }).move(silla.posicion.x, silla.posicion.y);
 
                         sillaFigura.numero = silla.numero;
-                    sillaFigura.click(function() {
-                        confirmar = confirm("¿Estás seguro que deseas resevarla?");
-                        if (confirmar) {
-                            this.attr({
-                                fill: '#00c853'
-                            })
-                            console.log('Seleccionaste la silla: ' + this.numero);
-                            sillaReservada.push(this.numero);
-                            contador++;
-                            for (var i = 0; i < sillaReservada.length; i++) {
-                                //console.log(sillaReservada[i]);
+                        sillaFigura.click(function() {
+                            confirmar = confirm("¿Estás seguro que deseas resevarla?");
+                            if (confirmar) {
+                                this.attr({
+                                    fill: '#00c853'
+                                })
+                                console.log('Seleccionaste la silla: ' + this.numero);
+                                sillaReservada.push(this.numero);
+                                contador++;
+                                for (var i = 0; i < sillaReservada.length; i++) {
+                                    //console.log(sillaReservada[i]);
+                                }
                             }
-                        }
-                    });
-                }
-                conta ++;
+                        });
+                    }
+                    conta++;
                 }
 
             }
@@ -2384,20 +2274,9 @@ $configuracion = file ('txt/reservados.txt');
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
-                 var conta=0;
+                var conta = 0;
                 for (var silla of mesa.sillas) {
-                    if (datosObtenidos[100] > 0 && conta == 0) {} 
-                    else if (datosObtenidos[101] > 0 && conta == 1) {} 
-                    else if (datosObtenidos[102] > 0 && conta == 2) {}
-                    else if (datosObtenidos[103] > 0 && conta == 3) {} 
-                    else if (datosObtenidos[104] > 0 && conta == 4) {} 
-                    else if (datosObtenidos[105] > 0 && conta == 5) {}  
-                    else if (datosObtenidos[106] > 0 && conta == 6) {}
-                    else if (datosObtenidos[107] > 0 && conta == 7) {} 
-                    else if (datosObtenidos[108] > 0 && conta == 8) {}
-                    else if (datosObtenidos[109] > 0 && conta == 9) {}
-                      
-                        else{
+                    if (datosObtenidos[100] > 0 && conta == 0) {} else if (datosObtenidos[101] > 0 && conta == 1) {} else if (datosObtenidos[102] > 0 && conta == 2) {} else if (datosObtenidos[103] > 0 && conta == 3) {} else if (datosObtenidos[104] > 0 && conta == 4) {} else if (datosObtenidos[105] > 0 && conta == 5) {} else if (datosObtenidos[106] > 0 && conta == 6) {} else if (datosObtenidos[107] > 0 && conta == 7) {} else if (datosObtenidos[108] > 0 && conta == 8) {} else if (datosObtenidos[109] > 0 && conta == 9) {} else {
                         var color = silla.ocupada ? mesa.color : silla.color;
 
                         var sillaFigura = lienzo.circle(20).attr({
@@ -2405,22 +2284,22 @@ $configuracion = file ('txt/reservados.txt');
                         }).move(silla.posicion.x, silla.posicion.y);
 
                         sillaFigura.numero = silla.numero;
-                    sillaFigura.click(function() {
-                        confirmar = confirm("¿Estás seguro que deseas resevarla?");
-                        if (confirmar) {
-                            this.attr({
-                                fill: '#00c853'
-                            })
-                            console.log('Seleccionaste la silla: ' + this.numero);
-                            sillaReservada.push(this.numero);
-                            contador++;
-                            for (var i = 0; i < sillaReservada.length; i++) {
-                                //console.log(sillaReservada[i]);
+                        sillaFigura.click(function() {
+                            confirmar = confirm("¿Estás seguro que deseas resevarla?");
+                            if (confirmar) {
+                                this.attr({
+                                    fill: '#00c853'
+                                })
+                                console.log('Seleccionaste la silla: ' + this.numero);
+                                sillaReservada.push(this.numero);
+                                contador++;
+                                for (var i = 0; i < sillaReservada.length; i++) {
+                                    //console.log(sillaReservada[i]);
+                                }
                             }
-                        }
-                    });
-                }
-                conta ++;
+                        });
+                    }
+                    conta++;
                 }
 
             }
@@ -2432,20 +2311,9 @@ $configuracion = file ('txt/reservados.txt');
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
-                 var conta=0;
+                var conta = 0;
                 for (var silla of mesa.sillas) {
-                    if (datosObtenidos[110] > 0 && conta == 0) {} 
-                    else if (datosObtenidos[111] > 0 && conta == 1) {} 
-                    else if (datosObtenidos[112] > 0 && conta == 2) {}
-                    else if (datosObtenidos[113] > 0 && conta == 3) {} 
-                    else if (datosObtenidos[114] > 0 && conta == 4) {} 
-                    else if (datosObtenidos[115] > 0 && conta == 5) {}  
-                    else if (datosObtenidos[116] > 0 && conta == 6) {}
-                    else if (datosObtenidos[117] > 0 && conta == 7) {} 
-                    else if (datosObtenidos[118] > 0 && conta == 8) {}
-                    else if (datosObtenidos[119] > 0 && conta == 9) {}
-                      
-                        else{
+                    if (datosObtenidos[110] > 0 && conta == 0) {} else if (datosObtenidos[111] > 0 && conta == 1) {} else if (datosObtenidos[112] > 0 && conta == 2) {} else if (datosObtenidos[113] > 0 && conta == 3) {} else if (datosObtenidos[114] > 0 && conta == 4) {} else if (datosObtenidos[115] > 0 && conta == 5) {} else if (datosObtenidos[116] > 0 && conta == 6) {} else if (datosObtenidos[117] > 0 && conta == 7) {} else if (datosObtenidos[118] > 0 && conta == 8) {} else if (datosObtenidos[119] > 0 && conta == 9) {} else {
                         var color = silla.ocupada ? mesa.color : silla.color;
 
                         var sillaFigura = lienzo.circle(20).attr({
@@ -2453,22 +2321,22 @@ $configuracion = file ('txt/reservados.txt');
                         }).move(silla.posicion.x, silla.posicion.y);
 
                         sillaFigura.numero = silla.numero;
-                    sillaFigura.click(function() {
-                        confirmar = confirm("¿Estás seguro que deseas resevarla?");
-                        if (confirmar) {
-                            this.attr({
-                                fill: '#00c853'
-                            })
-                            console.log('Seleccionaste la silla: ' + this.numero);
-                            sillaReservada.push(this.numero);
-                            contador++;
-                            for (var i = 0; i < sillaReservada.length; i++) {
-                                //console.log(sillaReservada[i]);
+                        sillaFigura.click(function() {
+                            confirmar = confirm("¿Estás seguro que deseas resevarla?");
+                            if (confirmar) {
+                                this.attr({
+                                    fill: '#00c853'
+                                })
+                                console.log('Seleccionaste la silla: ' + this.numero);
+                                sillaReservada.push(this.numero);
+                                contador++;
+                                for (var i = 0; i < sillaReservada.length; i++) {
+                                    //console.log(sillaReservada[i]);
+                                }
                             }
-                        }
-                    });
-                }
-                conta ++;
+                        });
+                    }
+                    conta++;
                 }
 
             }
@@ -2478,20 +2346,9 @@ $configuracion = file ('txt/reservados.txt');
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
-                 var conta=0;
+                var conta = 0;
                 for (var silla of mesa.sillas) {
-                    if (datosObtenidos[120] > 0 && conta == 0) {} 
-                    else if (datosObtenidos[121] > 0 && conta == 1) {} 
-                    else if (datosObtenidos[122] > 0 && conta == 2) {}
-                    else if (datosObtenidos[123] > 0 && conta == 3) {} 
-                    else if (datosObtenidos[124] > 0 && conta == 4) {} 
-                    else if (datosObtenidos[125] > 0 && conta == 5) {}  
-                    else if (datosObtenidos[126] > 0 && conta == 6) {}
-                    else if (datosObtenidos[127] > 0 && conta == 7) {} 
-                    else if (datosObtenidos[128] > 0 && conta == 8) {}
-                    else if (datosObtenidos[129] > 0 && conta == 9) {}
-                      
-                        else{
+                    if (datosObtenidos[120] > 0 && conta == 0) {} else if (datosObtenidos[121] > 0 && conta == 1) {} else if (datosObtenidos[122] > 0 && conta == 2) {} else if (datosObtenidos[123] > 0 && conta == 3) {} else if (datosObtenidos[124] > 0 && conta == 4) {} else if (datosObtenidos[125] > 0 && conta == 5) {} else if (datosObtenidos[126] > 0 && conta == 6) {} else if (datosObtenidos[127] > 0 && conta == 7) {} else if (datosObtenidos[128] > 0 && conta == 8) {} else if (datosObtenidos[129] > 0 && conta == 9) {} else {
                         var color = silla.ocupada ? mesa.color : silla.color;
 
                         var sillaFigura = lienzo.circle(20).attr({
@@ -2499,22 +2356,22 @@ $configuracion = file ('txt/reservados.txt');
                         }).move(silla.posicion.x, silla.posicion.y);
 
                         sillaFigura.numero = silla.numero;
-                    sillaFigura.click(function() {
-                        confirmar = confirm("¿Estás seguro que deseas resevarla?");
-                        if (confirmar) {
-                            this.attr({
-                                fill: '#00c853'
-                            })
-                            console.log('Seleccionaste la silla: ' + this.numero);
-                            sillaReservada.push(this.numero);
-                            contador++;
-                            for (var i = 0; i < sillaReservada.length; i++) {
-                                //console.log(sillaReservada[i]);
+                        sillaFigura.click(function() {
+                            confirmar = confirm("¿Estás seguro que deseas resevarla?");
+                            if (confirmar) {
+                                this.attr({
+                                    fill: '#00c853'
+                                })
+                                console.log('Seleccionaste la silla: ' + this.numero);
+                                sillaReservada.push(this.numero);
+                                contador++;
+                                for (var i = 0; i < sillaReservada.length; i++) {
+                                    //console.log(sillaReservada[i]);
+                                }
                             }
-                        }
-                    });
-                }
-                conta ++;
+                        });
+                    }
+                    conta++;
                 }
             }
 
@@ -2523,20 +2380,9 @@ $configuracion = file ('txt/reservados.txt');
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
-                 var conta=0;
+                var conta = 0;
                 for (var silla of mesa.sillas) {
-                    if (datosObtenidos[130] > 0 && conta == 0) {} 
-                    else if (datosObtenidos[131] > 0 && conta == 1) {} 
-                    else if (datosObtenidos[132] > 0 && conta == 2) {}
-                    else if (datosObtenidos[133] > 0 && conta == 3) {} 
-                    else if (datosObtenidos[134] > 0 && conta == 4) {} 
-                    else if (datosObtenidos[135] > 0 && conta == 5) {}  
-                    else if (datosObtenidos[136] > 0 && conta == 6) {}
-                    else if (datosObtenidos[137] > 0 && conta == 7) {} 
-                    else if (datosObtenidos[138] > 0 && conta == 8) {}
-                    else if (datosObtenidos[139] > 0 && conta == 9) {}
-                      
-                        else{
+                    if (datosObtenidos[130] > 0 && conta == 0) {} else if (datosObtenidos[131] > 0 && conta == 1) {} else if (datosObtenidos[132] > 0 && conta == 2) {} else if (datosObtenidos[133] > 0 && conta == 3) {} else if (datosObtenidos[134] > 0 && conta == 4) {} else if (datosObtenidos[135] > 0 && conta == 5) {} else if (datosObtenidos[136] > 0 && conta == 6) {} else if (datosObtenidos[137] > 0 && conta == 7) {} else if (datosObtenidos[138] > 0 && conta == 8) {} else if (datosObtenidos[139] > 0 && conta == 9) {} else {
                         var color = silla.ocupada ? mesa.color : silla.color;
 
                         var sillaFigura = lienzo.circle(20).attr({
@@ -2544,22 +2390,22 @@ $configuracion = file ('txt/reservados.txt');
                         }).move(silla.posicion.x, silla.posicion.y);
 
                         sillaFigura.numero = silla.numero;
-                    sillaFigura.click(function() {
-                        confirmar = confirm("¿Estás seguro que deseas resevarla?");
-                        if (confirmar) {
-                            this.attr({
-                                fill: '#00c853'
-                            })
-                            console.log('Seleccionaste la silla: ' + this.numero);
-                            sillaReservada.push(this.numero);
-                            contador++;
-                            for (var i = 0; i < sillaReservada.length; i++) {
-                                //console.log(sillaReservada[i]);
+                        sillaFigura.click(function() {
+                            confirmar = confirm("¿Estás seguro que deseas resevarla?");
+                            if (confirmar) {
+                                this.attr({
+                                    fill: '#00c853'
+                                })
+                                console.log('Seleccionaste la silla: ' + this.numero);
+                                sillaReservada.push(this.numero);
+                                contador++;
+                                for (var i = 0; i < sillaReservada.length; i++) {
+                                    //console.log(sillaReservada[i]);
+                                }
                             }
-                        }
-                    });
-                }
-                conta ++;
+                        });
+                    }
+                    conta++;
                 }
 
             }
@@ -2569,20 +2415,9 @@ $configuracion = file ('txt/reservados.txt');
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
-                 var conta=0;
+                var conta = 0;
                 for (var silla of mesa.sillas) {
-                    if (datosObtenidos[140] > 0 && conta == 0) {} 
-                    else if (datosObtenidos[141] > 0 && conta == 1) {} 
-                    else if (datosObtenidos[142] > 0 && conta == 2) {}
-                    else if (datosObtenidos[143] > 0 && conta == 3) {} 
-                    else if (datosObtenidos[144] > 0 && conta == 4) {} 
-                    else if (datosObtenidos[145] > 0 && conta == 5) {}  
-                    else if (datosObtenidos[146] > 0 && conta == 6) {}
-                    else if (datosObtenidos[147] > 0 && conta == 7) {} 
-                    else if (datosObtenidos[148] > 0 && conta == 8) {}
-                    else if (datosObtenidos[149] > 0 && conta == 9) {}
-                      
-                        else{
+                    if (datosObtenidos[140] > 0 && conta == 0) {} else if (datosObtenidos[141] > 0 && conta == 1) {} else if (datosObtenidos[142] > 0 && conta == 2) {} else if (datosObtenidos[143] > 0 && conta == 3) {} else if (datosObtenidos[144] > 0 && conta == 4) {} else if (datosObtenidos[145] > 0 && conta == 5) {} else if (datosObtenidos[146] > 0 && conta == 6) {} else if (datosObtenidos[147] > 0 && conta == 7) {} else if (datosObtenidos[148] > 0 && conta == 8) {} else if (datosObtenidos[149] > 0 && conta == 9) {} else {
                         var color = silla.ocupada ? mesa.color : silla.color;
 
                         var sillaFigura = lienzo.circle(20).attr({
@@ -2590,22 +2425,22 @@ $configuracion = file ('txt/reservados.txt');
                         }).move(silla.posicion.x, silla.posicion.y);
 
                         sillaFigura.numero = silla.numero;
-                    sillaFigura.click(function() {
-                        confirmar = confirm("¿Estás seguro que deseas resevarla?");
-                        if (confirmar) {
-                            this.attr({
-                                fill: '#00c853'
-                            })
-                            console.log('Seleccionaste la silla: ' + this.numero);
-                            sillaReservada.push(this.numero);
-                            contador++;
-                            for (var i = 0; i < sillaReservada.length; i++) {
-                                //console.log(sillaReservada[i]);
+                        sillaFigura.click(function() {
+                            confirmar = confirm("¿Estás seguro que deseas resevarla?");
+                            if (confirmar) {
+                                this.attr({
+                                    fill: '#00c853'
+                                })
+                                console.log('Seleccionaste la silla: ' + this.numero);
+                                sillaReservada.push(this.numero);
+                                contador++;
+                                for (var i = 0; i < sillaReservada.length; i++) {
+                                    //console.log(sillaReservada[i]);
+                                }
                             }
-                        }
-                    });
-                }
-                conta ++;
+                        });
+                    }
+                    conta++;
                 }
 
             }
@@ -2615,20 +2450,9 @@ $configuracion = file ('txt/reservados.txt');
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
-                 var conta=0;
+                var conta = 0;
                 for (var silla of mesa.sillas) {
-                    if (datosObtenidos[150] > 0 && conta == 0) {} 
-                    else if (datosObtenidos[151] > 0 && conta == 1) {} 
-                    else if (datosObtenidos[152] > 0 && conta == 2) {}
-                    else if (datosObtenidos[153] > 0 && conta == 3) {} 
-                    else if (datosObtenidos[154] > 0 && conta == 4) {} 
-                    else if (datosObtenidos[155] > 0 && conta == 5) {}  
-                    else if (datosObtenidos[156] > 0 && conta == 6) {}
-                    else if (datosObtenidos[157] > 0 && conta == 7) {} 
-                    else if (datosObtenidos[158] > 0 && conta == 8) {}
-                    else if (datosObtenidos[159] > 0 && conta == 9) {}
-                      
-                        else{
+                    if (datosObtenidos[150] > 0 && conta == 0) {} else if (datosObtenidos[151] > 0 && conta == 1) {} else if (datosObtenidos[152] > 0 && conta == 2) {} else if (datosObtenidos[153] > 0 && conta == 3) {} else if (datosObtenidos[154] > 0 && conta == 4) {} else if (datosObtenidos[155] > 0 && conta == 5) {} else if (datosObtenidos[156] > 0 && conta == 6) {} else if (datosObtenidos[157] > 0 && conta == 7) {} else if (datosObtenidos[158] > 0 && conta == 8) {} else if (datosObtenidos[159] > 0 && conta == 9) {} else {
                         var color = silla.ocupada ? mesa.color : silla.color;
 
                         var sillaFigura = lienzo.circle(20).attr({
@@ -2636,22 +2460,22 @@ $configuracion = file ('txt/reservados.txt');
                         }).move(silla.posicion.x, silla.posicion.y);
 
                         sillaFigura.numero = silla.numero;
-                    sillaFigura.click(function() {
-                        confirmar = confirm("¿Estás seguro que deseas resevarla?");
-                        if (confirmar) {
-                            this.attr({
-                                fill: '#00c853'
-                            })
-                            console.log('Seleccionaste la silla: ' + this.numero);
-                            sillaReservada.push(this.numero);
-                            contador++;
-                            for (var i = 0; i < sillaReservada.length; i++) {
-                                //console.log(sillaReservada[i]);
+                        sillaFigura.click(function() {
+                            confirmar = confirm("¿Estás seguro que deseas resevarla?");
+                            if (confirmar) {
+                                this.attr({
+                                    fill: '#00c853'
+                                })
+                                console.log('Seleccionaste la silla: ' + this.numero);
+                                sillaReservada.push(this.numero);
+                                contador++;
+                                for (var i = 0; i < sillaReservada.length; i++) {
+                                    //console.log(sillaReservada[i]);
+                                }
                             }
-                        }
-                    });
-                }
-                conta ++;
+                        });
+                    }
+                    conta++;
                 }
 
             }
@@ -2662,20 +2486,9 @@ $configuracion = file ('txt/reservados.txt');
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
-                 var conta=0;
+                var conta = 0;
                 for (var silla of mesa.sillas) {
-                    if (datosObtenidos[160] > 0 && conta == 0) {} 
-                    else if (datosObtenidos[161] > 0 && conta == 1) {} 
-                    else if (datosObtenidos[162] > 0 && conta == 2) {}
-                    else if (datosObtenidos[163] > 0 && conta == 3) {} 
-                    else if (datosObtenidos[164] > 0 && conta == 4) {} 
-                    else if (datosObtenidos[165] > 0 && conta == 5) {}  
-                    else if (datosObtenidos[166] > 0 && conta == 6) {}
-                    else if (datosObtenidos[167] > 0 && conta == 7) {} 
-                    else if (datosObtenidos[168] > 0 && conta == 8) {}
-                    else if (datosObtenidos[169] > 0 && conta == 9) {}
-                      
-                        else{
+                    if (datosObtenidos[160] > 0 && conta == 0) {} else if (datosObtenidos[161] > 0 && conta == 1) {} else if (datosObtenidos[162] > 0 && conta == 2) {} else if (datosObtenidos[163] > 0 && conta == 3) {} else if (datosObtenidos[164] > 0 && conta == 4) {} else if (datosObtenidos[165] > 0 && conta == 5) {} else if (datosObtenidos[166] > 0 && conta == 6) {} else if (datosObtenidos[167] > 0 && conta == 7) {} else if (datosObtenidos[168] > 0 && conta == 8) {} else if (datosObtenidos[169] > 0 && conta == 9) {} else {
                         var color = silla.ocupada ? mesa.color : silla.color;
 
                         var sillaFigura = lienzo.circle(20).attr({
@@ -2683,22 +2496,22 @@ $configuracion = file ('txt/reservados.txt');
                         }).move(silla.posicion.x, silla.posicion.y);
 
                         sillaFigura.numero = silla.numero;
-                    sillaFigura.click(function() {
-                        confirmar = confirm("¿Estás seguro que deseas resevarla?");
-                        if (confirmar) {
-                            this.attr({
-                                fill: '#00c853'
-                            })
-                            console.log('Seleccionaste la silla: ' + this.numero);
-                            sillaReservada.push(this.numero);
-                            contador++;
-                            for (var i = 0; i < sillaReservada.length; i++) {
-                                //console.log(sillaReservada[i]);
+                        sillaFigura.click(function() {
+                            confirmar = confirm("¿Estás seguro que deseas resevarla?");
+                            if (confirmar) {
+                                this.attr({
+                                    fill: '#00c853'
+                                })
+                                console.log('Seleccionaste la silla: ' + this.numero);
+                                sillaReservada.push(this.numero);
+                                contador++;
+                                for (var i = 0; i < sillaReservada.length; i++) {
+                                    //console.log(sillaReservada[i]);
+                                }
                             }
-                        }
-                    });
-                }
-                conta ++;
+                        });
+                    }
+                    conta++;
                 }
 
             }
@@ -2708,20 +2521,9 @@ $configuracion = file ('txt/reservados.txt');
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
-                 var conta=0;
+                var conta = 0;
                 for (var silla of mesa.sillas) {
-                    if (datosObtenidos[170] > 0 && conta == 0) {} 
-                    else if (datosObtenidos[171] > 0 && conta == 1) {} 
-                    else if (datosObtenidos[172] > 0 && conta == 2) {}
-                    else if (datosObtenidos[173] > 0 && conta == 3) {} 
-                    else if (datosObtenidos[174] > 0 && conta == 4) {} 
-                    else if (datosObtenidos[175] > 0 && conta == 5) {}  
-                    else if (datosObtenidos[176] > 0 && conta == 6) {}
-                    else if (datosObtenidos[177] > 0 && conta == 7) {} 
-                    else if (datosObtenidos[178] > 0 && conta == 8) {}
-                    else if (datosObtenidos[179] > 0 && conta == 9) {}
-                      
-                        else{
+                    if (datosObtenidos[170] > 0 && conta == 0) {} else if (datosObtenidos[171] > 0 && conta == 1) {} else if (datosObtenidos[172] > 0 && conta == 2) {} else if (datosObtenidos[173] > 0 && conta == 3) {} else if (datosObtenidos[174] > 0 && conta == 4) {} else if (datosObtenidos[175] > 0 && conta == 5) {} else if (datosObtenidos[176] > 0 && conta == 6) {} else if (datosObtenidos[177] > 0 && conta == 7) {} else if (datosObtenidos[178] > 0 && conta == 8) {} else if (datosObtenidos[179] > 0 && conta == 9) {} else {
                         var color = silla.ocupada ? mesa.color : silla.color;
 
                         var sillaFigura = lienzo.circle(20).attr({
@@ -2729,22 +2531,22 @@ $configuracion = file ('txt/reservados.txt');
                         }).move(silla.posicion.x, silla.posicion.y);
 
                         sillaFigura.numero = silla.numero;
-                    sillaFigura.click(function() {
-                        confirmar = confirm("¿Estás seguro que deseas resevarla?");
-                        if (confirmar) {
-                            this.attr({
-                                fill: '#00c853'
-                            })
-                            console.log('Seleccionaste la silla: ' + this.numero);
-                            sillaReservada.push(this.numero);
-                            contador++;
-                            for (var i = 0; i < sillaReservada.length; i++) {
-                                //console.log(sillaReservada[i]);
+                        sillaFigura.click(function() {
+                            confirmar = confirm("¿Estás seguro que deseas resevarla?");
+                            if (confirmar) {
+                                this.attr({
+                                    fill: '#00c853'
+                                })
+                                console.log('Seleccionaste la silla: ' + this.numero);
+                                sillaReservada.push(this.numero);
+                                contador++;
+                                for (var i = 0; i < sillaReservada.length; i++) {
+                                    //console.log(sillaReservada[i]);
+                                }
                             }
-                        }
-                    });
-                }
-                conta ++;
+                        });
+                    }
+                    conta++;
                 }
 
             }
@@ -2754,20 +2556,9 @@ $configuracion = file ('txt/reservados.txt');
                 var mesaFigura = lienzo.circle(100).attr({
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
-                var conta=0;
+                var conta = 0;
                 for (var silla of mesa.sillas) {
-                    if (datosObtenidos[180] > 0 && conta == 0) {} 
-                    else if (datosObtenidos[181] > 0 && conta == 1) {} 
-                    else if (datosObtenidos[182] > 0 && conta == 2) {}
-                    else if (datosObtenidos[183] > 0 && conta == 3) {} 
-                    else if (datosObtenidos[184] > 0 && conta == 4) {} 
-                    else if (datosObtenidos[185] > 0 && conta == 5) {}  
-                    else if (datosObtenidos[186] > 0 && conta == 6) {}
-                    else if (datosObtenidos[187] > 0 && conta == 7) {} 
-                    else if (datosObtenidos[188] > 0 && conta == 8) {}
-                    else if (datosObtenidos[189] > 0 && conta == 9) {}
-                      
-                        else{
+                    if (datosObtenidos[180] > 0 && conta == 0) {} else if (datosObtenidos[181] > 0 && conta == 1) {} else if (datosObtenidos[182] > 0 && conta == 2) {} else if (datosObtenidos[183] > 0 && conta == 3) {} else if (datosObtenidos[184] > 0 && conta == 4) {} else if (datosObtenidos[185] > 0 && conta == 5) {} else if (datosObtenidos[186] > 0 && conta == 6) {} else if (datosObtenidos[187] > 0 && conta == 7) {} else if (datosObtenidos[188] > 0 && conta == 8) {} else if (datosObtenidos[189] > 0 && conta == 9) {} else {
                         var color = silla.ocupada ? mesa.color : silla.color;
 
                         var sillaFigura = lienzo.circle(20).attr({
@@ -2775,22 +2566,22 @@ $configuracion = file ('txt/reservados.txt');
                         }).move(silla.posicion.x, silla.posicion.y);
 
                         sillaFigura.numero = silla.numero;
-                    sillaFigura.click(function() {
-                        confirmar = confirm("¿Estás seguro que deseas resevarla?");
-                        if (confirmar) {
-                            this.attr({
-                                fill: '#00c853'
-                            })
-                            console.log('Seleccionaste la silla: ' + this.numero);
-                            sillaReservada.push(this.numero);
-                            contador++;
-                            for (var i = 0; i < sillaReservada.length; i++) {
-                                //console.log(sillaReservada[i]);
+                        sillaFigura.click(function() {
+                            confirmar = confirm("¿Estás seguro que deseas resevarla?");
+                            if (confirmar) {
+                                this.attr({
+                                    fill: '#00c853'
+                                })
+                                console.log('Seleccionaste la silla: ' + this.numero);
+                                sillaReservada.push(this.numero);
+                                contador++;
+                                for (var i = 0; i < sillaReservada.length; i++) {
+                                    //console.log(sillaReservada[i]);
+                                }
                             }
-                        }
-                    });
-                }
-                conta ++;
+                        });
+                    }
+                    conta++;
                 }
 
             }
@@ -2800,20 +2591,9 @@ $configuracion = file ('txt/reservados.txt');
                     fill: mesa.color
                 }).move(mesa.posicion.x, mesa.posicion.y);
 
-                 var conta=0;
+                var conta = 0;
                 for (var silla of mesa.sillas) {
-                    if (datosObtenidos[190] > 0 && conta == 0) {} 
-                    else if (datosObtenidos[191] > 0 && conta == 1) {} 
-                    else if (datosObtenidos[192] > 0 && conta == 2) {}
-                    else if (datosObtenidos[193] > 0 && conta == 3) {} 
-                    else if (datosObtenidos[194] > 0 && conta == 4) {} 
-                    else if (datosObtenidos[195] > 0 && conta == 5) {}  
-                    else if (datosObtenidos[196] > 0 && conta == 6) {}
-                    else if (datosObtenidos[197] > 0 && conta == 7) {} 
-                    else if (datosObtenidos[198] > 0 && conta == 8) {}
-                    else if (datosObtenidos[199] > 0 && conta == 9) {}
-                      
-                        else{
+                    if (datosObtenidos[190] > 0 && conta == 0) {} else if (datosObtenidos[191] > 0 && conta == 1) {} else if (datosObtenidos[192] > 0 && conta == 2) {} else if (datosObtenidos[193] > 0 && conta == 3) {} else if (datosObtenidos[194] > 0 && conta == 4) {} else if (datosObtenidos[195] > 0 && conta == 5) {} else if (datosObtenidos[196] > 0 && conta == 6) {} else if (datosObtenidos[197] > 0 && conta == 7) {} else if (datosObtenidos[198] > 0 && conta == 8) {} else if (datosObtenidos[199] > 0 && conta == 9) {} else {
                         var color = silla.ocupada ? mesa.color : silla.color;
 
                         var sillaFigura = lienzo.circle(20).attr({
@@ -2821,61 +2601,48 @@ $configuracion = file ('txt/reservados.txt');
                         }).move(silla.posicion.x, silla.posicion.y);
 
                         sillaFigura.numero = silla.numero;
-                    sillaFigura.click(function() {
-                        confirmar = confirm("¿Estás seguro que deseas resevarla?");
-                        if (confirmar) {
-                            this.attr({
-                                fill: '#00c853'
-                            })
-                            console.log('Seleccionaste la silla: ' + this.numero);
-                            sillaReservada.push(this.numero);
-                            contador++;
-                            for (var i = 0; i < sillaReservada.length; i++) {
-                                //console.log(sillaReservada[i]);
+                        sillaFigura.click(function() {
+                            confirmar = confirm("¿Estás seguro que deseas resevarla?");
+                            if (confirmar) {
+                                this.attr({
+                                    fill: '#00c853'
+                                })
+                                console.log('Seleccionaste la silla: ' + this.numero);
+                                sillaReservada.push(this.numero);
+                                contador++;
+                                for (var i = 0; i < sillaReservada.length; i++) {
+                                    //console.log(sillaReservada[i]);
+                                }
                             }
-                        }
-                    });
-                }
-                conta ++;
+                        });
+                    }
+                    conta++;
                 }
 
             }
 
-            function comprobar(){
-                if (contador < sillasDisponibles && sillasDisponibles > 0) {
-                    var actualizar =  sillasDisponibles - contador;
-                    console.log(actualizar);
-                location.href = "actualizar.php?disponible=" + actualizar;
-                mostrar();
-                }
-                else{
-                    alert("Ya no puedes reservar mas sillas");
-                }
-            }
 
             function mostrar() {
-                
-  
-              
                 var mensaje2 = confirm("¿Deseas guardar tus reservaciones?");
                 if (mensaje2) {
-                    location.href = "reservar.php?sillas=" + sillaReservada;
-                   
+                    
+
+                }
+                if (mensaje2) {
+                  
+                    location.href = "reservar.php?sillas=" + sillaReservada +"&contador="+contador;
+
                 }
                 
-              
-                //location.href = "actualizar.php?total=" + total;
-                
-                
-                }
-                
-            
-                
+
+
+
+            }
 
         </script>
         <a href="#"><img src="pictures/Fleca.png" title="Ir arriba" style="position: fixed; bottom: 10px; right: 2%;" height="50" /></a>
         <a href="#"><img src="pictures/guardar2.png" title="Ir arriba" style="position: fixed; bottom: 10px; right: 8%;" height="50" onclick="mostrar()" /></a>
-        
+
     </body>
 
     </html>
