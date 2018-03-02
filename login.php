@@ -23,7 +23,12 @@ if ($conexion->connect_error) {
         $_SESSION["nombre"] = ($usuario[1]." ".$usuario[2]." ".$usuario[3]);
         $_SESSION["sillas"] = $usuario[5];
         file_put_contents('txt/sillaDisponibles.txt',  $_SESSION["sillas"]."\r\n");
-        header('Location: mesas.php');
+        if ($_SESSION["sillas"] <= 0){
+            header('Location: error3.html');
+        }
+        else{
+        header('Location: obtener.php');
+        }
     } elseif ($res_admins->num_rows > 0) {
         header('Location: admin.html');
     } else {
