@@ -25,56 +25,59 @@ $idUsua = $_SESSION["ID"];
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     </head>
     <style>
-        .boxlogin{
-    border-radius: 4px;
-    box-shadow: 0px 2px 10px;
-    margin: 90px auto;
-    width: 350px;
-    height: 4000px;
-    -webki-border-radius: 4px;
-    -moz-border-radius: 4px;
-}
+        .boxlogin {
+            border-radius: 4px;
+            box-shadow: 0px 2px 10px;
+            margin: 90px auto;
+            width: 350px;
+            height: 4000px;
+            -webki-border-radius: 4px;
+            -moz-border-radius: 4px;
+        }
+        
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
 
-table, th, td {
-    border: 1px solid black;
-}
-</style>
+    </style>
 
     <body background="images/first.jpg">
 
         <div class="jumbotron boxlogin fullscreen">
             <center>
                 <p>Reservados:</p>
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Número de Mesa</th>
-                                <th>Reservado por</th>
-                            </tr>
-                        </thead>
-                        <?php foreach ($conexion->query('SELECT * from sillas WHERE alumno_id != 0') as $row){ // aca puedes hacer la consulta e iterarla con each. ?>
-                            <?php foreach ($conexion->query('SELECT * from alumnos WHERE id = \''.$idUsua.'\'') as $row){ // aca puedes hacer la consulta e iterarla con each. ?>
-                        
-                            <tr>
-                            <td>
-                                <?php echo $row['id'] ?>
-                            </td>
-                            <td>
-                                <?php echo $row['nombre'] ?>
-                            </td>
-                            
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Número de Mesa</th>
+                            <th>Reservado por</th>
                         </tr>
+                    </thead>
+                    <?php foreach ($conexion->query('SELECT * from sillas WHERE alumno_id != 0') as $row){ // aca puedes hacer la consulta e iterarla con each. ?>
+                    <?php foreach ($conexion->query('SELECT * from alumnos WHERE id = \''.$idUsua.'\'') as $row){ // aca puedes hacer la consulta e iterarla con each. ?>
+
+                    <tr>
+                        <td>
+                            <?php echo $row['id'] ?>
+                        </td>
+                        <td>
+                            <?php echo $row['nombre'] ?>
+                        </td>
+
+                    </tr>
+                    <?php
+                    }
+                ?>
                         <?php
                     }
                 ?>
-                 <?php
-                    }
-                ?>
-                
-                    </table>
-                    
+
+                </table>
+
             </center>
-            
+
         </div>
         <a href="#"><img src="pictures/user.png" title="Ir arriba" style="position: fixed; bottom: 10px; right: 14%;" height="50" onclick="window.location='login.html';" /></a>
 

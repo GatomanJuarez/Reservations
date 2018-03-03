@@ -7,11 +7,11 @@
 </head>
 
 <body background="pictures/Pared.jpg">
-    
+
     <div id="lienzo">
-            
-                </div>
-    
+
+    </div>
+
 
 
     <script src="js/svg.min.js"></script>
@@ -1891,18 +1891,18 @@
 
                 sillaFigura.numero = silla.numero;
 
-               
-                    sillaFigura.click(function() {
-                        var mensaje = confirm("¿Deseas reservar esta mesa?");
-                    if (mensaje){
+
+                sillaFigura.click(function() {
+                    var mensaje = confirm("¿Deseas reservar esta mesa?");
+                    if (mensaje) {
                         this.attr({
                             fill: '#00c853'
                         })
-                }
-                        
-                    });
+                    }
 
-                
+                });
+
+
             }
         }
 

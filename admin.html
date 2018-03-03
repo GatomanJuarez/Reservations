@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <title>Administración de Usuarios</title>
@@ -9,31 +10,32 @@
 </head>
 
 <body background="images/computer.jpg">
-        <div class="jumbotron boxticket fullscreen">
-                <center>
+    <div class="jumbotron boxticket fullscreen">
+        <center>
             <form method="POST" name="add" id="add" action="insert_user.php" id="form-boletos" autocomplete="off">
-                    <img src="pictures/Boleto.png" alt="Ticket" height="70">
-                    <br>
-                    <br>
-                    
-                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre del alumno:" style="width: 80%" required>
-                    <br>
-                    <input type="text" name="paterno" id="paterno" class="form-control" placeholder="Apellido paterno del alumno:" style="width: 80%" required>
-                    <br>
-                    <input type="text" name="materno" id="materno" class="form-control" placeholder="Apellido materno del alumno:" style="width: 80%" required>
-                    <br>
-                    <input type="text" name="clave" id="clave" class="form-control" placeholder="Clave:" style="width: 80%" required>
-                    <br>
-                    <input type="text" name="sillas" id="sillas" class="form-control" placeholder="Sillas disponibles:" style="width: 80%" required>
-                    <br>
-                    <div>
-                            <input type="radio" id="contactChoice1"name="contact" value="1"><label for="contactChoice1">Pagado</label>
-                            <input type="radio" id="contactChoice2" name="contact" value="0"><label for="contactChoice2">Adeudado</label>
-                          </div>
+                <img src="pictures/Boleto.png" alt="Ticket" height="70">
+                <br>
+                <br>
+
+                <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre del alumno:" style="width: 80%" required>
+                <br>
+                <input type="text" name="paterno" id="paterno" class="form-control" placeholder="Apellido paterno del alumno:" style="width: 80%" required>
+                <br>
+                <input type="text" name="materno" id="materno" class="form-control" placeholder="Apellido materno del alumno:" style="width: 80%" required>
+                <br>
+                <input type="text" name="clave" id="clave" class="form-control" placeholder="Clave:" style="width: 80%" required>
+                <br>
+                <input type="text" name="sillas" id="sillas" class="form-control" placeholder="Sillas disponibles:" style="width: 80%" required>
+                <br>
+                <div>
+                    <input type="radio" id="contactChoice1" name="contact" value="1"><label for="contactChoice1">Pagado</label>
+                    <input type="radio" id="contactChoice2" name="contact" value="0"><label for="contactChoice2">Adeudado</label>
+                </div>
                 <br>
                 <input type="submit" class="btn btn-success" value="Agregar">
-                </center>
-            </form>
-        </div>
-	</body>
+        </center>
+        </form>
+    </div>
+</body>
+
 </html>

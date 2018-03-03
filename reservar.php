@@ -43,6 +43,3 @@ if ($conexion->connect_error) {
     }
     header('Location: obtener.php'); 
     $conexion->close();
-
-
-   

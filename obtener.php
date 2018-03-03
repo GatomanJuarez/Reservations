@@ -41,6 +41,3 @@ echo $_SESSION["sillas"];
 $conexion->close();
 header("location:mesas.php");
     }
-
-
-

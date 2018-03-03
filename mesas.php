@@ -2625,15 +2625,15 @@ $configuracion = file ('txt/reservados.txt');
             function mostrar() {
                 var mensaje2 = confirm("¿Deseas guardar tus reservaciones?");
                 if (mensaje2) {
-                    
+
 
                 }
                 if (mensaje2) {
-                  
-                    location.href = "reservar.php?sillas=" + sillaReservada +"&contador="+contador;
+
+                    location.href = "reservar.php?sillas=" + sillaReservada + "&contador=" + contador;
 
                 }
-                
+
 
 
 
